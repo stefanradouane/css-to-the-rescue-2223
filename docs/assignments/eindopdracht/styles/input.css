@@ -1,0 +1,150 @@
+dialog input {
+    display: flex;
+    appearance: none;
+    position: relative;
+    margin-top: auto;
+    padding: calc(var(--base-offset) / 2) var(--base-offset);
+    background-color: grey;
+}
+
+/* form:has(fieldset) input[type="reset"] {
+    position: fixed;
+    top: var(--base-offset);
+    right: var(--base-offset);
+} */
+
+body:has(dialog input:checked) button[type="reset"] {
+    display: block;
+}
+
+body:has(dialog input[data-level="spectator"]:checked) button[type="reset"]:after {
+    display: none;
+}
+
+body:has(button[type="reset"]:after) dialog {
+    background-color: yellow;
+}
+
+
+input,
+button {
+    cursor: pointer;
+}
+
+input:disabled,
+button:disabled {
+    cursor: not-allowed;
+}
+
+
+
+button[type="reset"] {
+    isolation: isolate;
+    appearance: none;
+    border: none;
+    position: absolute;
+    display: none;
+    top: var(--base-offset);
+    right: var(--base-offset);
+    padding: calc(var(--base-offset) / 2) var(--base-offset);
+    background-color: grey;
+    z-index: 1;
+}
+
+
+button[type="reset"]::after {
+    content: "On click your progress of this level will be lost";
+    position: absolute;
+    opacity: 0;
+    top: 100%;
+    left: 0;
+    z-index: -2;
+    background: #9f9f9f;
+    transform: scaleY(0);
+    transition: 200ms all;
+    transform-origin: top;
+}
+
+button[type="reset"]:hover::after {
+    opacity: 1;
+    transform: scaleY(100%);
+}
+
+dialog input[type="reset"] {
+    display: none;
+}
+
+
+
+input[type="range"] {
+    position: absolute;
+}
+
+input[type="range"]:not([aria-orientation="vertical"]) {
+    bottom: var(--base-offset);
+}
+
+input[type="range"][aria-orientation="vertical"] {
+    left: var(--base-offset);
+    transform: rotate(-90deg) translateX(-50%);
+    transform-origin: left;
+    top: 50%;
+}
+
+
+/* BIG RED BUTTON */
+input[name="end"] {
+    appearance: none;
+    background: #cc0000;
+    border-radius: 50%;
+    box-shadow: inset 0 0.25em 0.125em rgba(255, 255, 255, 0.3),
+        inset 0 -0.25em 0.125em rgba(0, 0, 0, 0.3);
+    display: block;
+    height: var(--object-size);
+    margin: auto;
+    padding: 0.55em;
+    position: relative;
+    width: var(--object-size);
+}
+
+input[name="end"]:after {
+    content: "";
+    display: block;
+    border-radius: 50%;
+    box-shadow: 0 0 0.5em rgba(0, 0, 0, 1),
+        inset 0 0.25em 0.3em rgba(255, 255, 255, 0.3),
+        inset 0 -0.25em 0.3em rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+input[name="end"]:checked:after {
+    box-shadow: 0 0 0.5em rgba(0, 0, 0, 1),
+        inset 0 0.1em 0.3em rgba(0, 0, 0, 0.5),
+        inset 0 -0.1em 0.3em rgba(0, 0, 0, 0.5);
+}
+
+
+/* SOLVE BOXES */
+
+input[name="box-puzzle"] {
+    height: calc(var(--object-size));
+    width: calc(var(--object-size));
+    appearance: none;
+    background-color: #444;
+    border: none;
+}
+
+input[name="box-puzzle"]:after {
+    content: attr(data-type);
+}
+
+input[name="box-puzzle"]:active {
+    background-color: #333;
+}
+
+input[name="box-puzzle"]:checked {
+    background-color: #333;
+}

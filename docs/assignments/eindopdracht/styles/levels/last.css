@@ -1,0 +1,401 @@
+/*           */
+/* SPIN CUBE */
+/*           */
+
+/* Spin the front side (green side) of the cube. */
+/* Double move (two steps) */
+section:has(fieldset[data-layer="1"]:valid)+section+article>span:nth-child(1),
+section:has(fieldset[data-layer="1"]:valid)+section+article>span:nth-child(7),
+section:has(fieldset[data-layer="1"]:valid)+section+article>span:nth-child(8),
+section:has(fieldset[data-layer="1"]:valid)+section+article>span:nth-child(10),
+section:has(fieldset[data-layer="1"]:valid)+section+article>span:nth-child(16),
+section:has(fieldset[data-layer="1"]:valid)+section+article>span:nth-child(17),
+section:has(fieldset[data-layer="1"]:valid)+section+article>span:nth-child(18),
+section:has(fieldset[data-layer="1"]:valid)+section+article>span:nth-child(25),
+section:has(fieldset[data-layer="1"]:valid)+section+article>span:nth-child(24) {
+    animation: greenFront calc(var(--animation-timing) * 2) var(--curve) forwards;
+}
+
+@keyframes greenFront {
+    0% {
+        transform: rotate3d(0, 0, 0, var(--move-deg));
+    }
+
+    50% {
+        transform: rotate3d(0, 0, 1, calc(var(--move-deg) / 2));
+    }
+
+    100% {
+        transform: rotate3d(0, 0, 1, var(--move-deg));
+    }
+}
+
+/* Spin the top side (yellow front) to the left.*/
+/* Single move (one step) */
+section:has(fieldset[data-layer="2"]:valid)+section+article>span:nth-child(2),
+section:has(fieldset[data-layer="2"]:valid)+section+article>span:nth-child(3),
+section:has(fieldset[data-layer="2"]:valid)+section+article>span:nth-child(4),
+section:has(fieldset[data-layer="2"]:valid)+section+article>span:nth-child(5),
+section:has(fieldset[data-layer="2"]:valid)+section+article>span:nth-child(6),
+section:has(fieldset[data-layer="2"]:valid)+section+article>span:nth-child(9) {
+    animation: yellowTopLeft var(--animation-timing) var(--curve) forwards 0ms;
+}
+
+@keyframes yellowTopLeft {
+    0% {
+        transform: rotate3d(0, 0, 0, var(--move-deg));
+    }
+
+    100% {
+        transform: rotate3d(1, 0, 0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-90deg);
+    }
+}
+
+section:has(fieldset[data-layer="2"]:valid)+section+article>span:nth-child(18),
+section:has(fieldset[data-layer="2"]:valid)+section+article>span:nth-child(25),
+section:has(fieldset[data-layer="2"]:valid)+section+article>span:nth-child(24) {
+    animation: yellowTopLeft-2 var(--animation-timing) var(--curve) forwards 0ms;
+}
+
+@keyframes yellowTopLeft-2 {
+    0% {
+        transform: rotate3d(0, 0, 1, var(--move-deg));
+    }
+
+    100% {
+        transform: rotate3d(-1, 0, 1, var(--move-deg));
+    }
+}
+
+/* Spin the middle (vertical) row up from the green side of the cube. */
+/* Single move (one step) */
+section:has(fieldset[data-layer="3"]:valid)+section+article>span:nth-child(2),
+section:has(fieldset[data-layer="3"]:valid)+section+article>span:nth-child(6),
+section:has(fieldset[data-layer="3"]:valid)+section+article>span:nth-child(9) {
+    animation: greenMiddleUp var(--animation-timing) var(--curve) forwards 0ms;
+}
+
+@keyframes greenMiddleUp {
+    0% {
+        transform: rotate3d(1, 0, 0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-90deg);
+    }
+
+    100% {
+        transform: rotate3d(1, 0, 0, calc(var(--move-deg) / 2)) rotateX(0deg) rotateY(-90deg);
+    }
+}
+
+section:has(fieldset[data-layer="3"]:valid)+section+article>span:nth-child(8),
+section:has(fieldset[data-layer="3"]:valid)+section+article>span:nth-child(17) {
+    animation: greenMiddleUp-2 var(--animation-timing) var(--curve) forwards 0ms;
+}
+
+@keyframes greenMiddleUp-2 {
+    0% {
+        transform: rotate3d(0, 0, 2, var(--move-deg));
+    }
+
+    100% {
+        transform: rotate3d(0, 0, 1, calc(var(--move-deg))) rotateX(-90deg) rotateY(0deg);
+    }
+}
+
+section:has(fieldset[data-layer="3"]:valid)+section+article>span:nth-child(21),
+section:has(fieldset[data-layer="3"]:valid)+section+article>span:nth-child(26),
+section:has(fieldset[data-layer="3"]:valid)+section+article>span:nth-child(13) {
+    animation: greenMiddleUp-3 var(--animation-timing) var(--curve) forwards 0ms;
+}
+
+@keyframes greenMiddleUp-3 {
+    0% {
+        transform: rotate3d(0, 0, 0, var(--move-deg));
+    }
+
+    100% {
+        transform: rotate3d(0, 0, 0, var(--move-deg)) rotateX(90deg) rotateY(0deg);
+    }
+}
+
+/* Spin the top (yellow side) two turns. */
+/* Double move (two steps) */
+section:has(fieldset[data-layer="4"]:valid)+section+article>span:nth-child(3),
+section:has(fieldset[data-layer="4"]:valid)+section+article>span:nth-child(4),
+section:has(fieldset[data-layer="4"]:valid)+section+article>span:nth-child(5) {
+    animation: yellowTopDouble calc(var(--animation-timing) * 2) var(--curve) forwards 0ms;
+}
+
+@keyframes yellowTopDouble {
+    0% {
+        transform: rotate3d(1, 0, 0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-90deg);
+    }
+
+    50% {
+        transform: rotate3d(1, 0, 0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-180deg);
+    }
+
+    100% {
+        transform: rotate3d(1, 0, 0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-270deg);
+    }
+}
+
+section:has(fieldset[data-layer="4"]:valid)+section+article>span:nth-child(18),
+section:has(fieldset[data-layer="4"]:valid)+section+article>span:nth-child(25),
+section:has(fieldset[data-layer="4"]:valid)+section+article>span:nth-child(24) {
+    animation: yellowTopDouble-2 calc(var(--animation-timing) * 2) var(--curve) forwards 0ms;
+}
+
+@keyframes yellowTopDouble-2 {
+    0% {
+        transform: rotate3d(-1, 0, 1, var(--move-deg));
+    }
+
+    50% {
+        transform: rotate3d(-1, 0, 1, var(--move-deg)) rotateY(90deg);
+    }
+
+    100% {
+        transform: rotate3d(-1, 0, 1, var(--move-deg)) rotateY(180deg);
+    }
+}
+
+section:has(fieldset[data-layer="4"]:valid)+section+article>span:nth-child(8),
+section:has(fieldset[data-layer="4"]:valid)+section+article>span:nth-child(17) {
+    animation: yellowTopDouble-3 calc(var(--animation-timing) * 2) var(--curve) forwards 0ms;
+}
+
+@keyframes yellowTopDouble-3 {
+    0% {
+        transform: rotate3d(0, 0, 0, var(--move-deg)) rotateX(-90deg) rotateY(-180deg);
+    }
+
+    50% {
+        transform: rotate3d(0, -1, 0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-180deg);
+    }
+
+    100% {
+        transform: rotate3d(0, -1, 0, var(--move-deg)) rotateX(-90deg) rotateY(-180deg);
+    }
+}
+
+section:has(fieldset[data-layer="4"]:valid)+section+article>span:nth-child(6) {
+    animation: yellowTopDouble-4 calc(var(--animation-timing) * 2) var(--curve) forwards 0ms;
+}
+
+@keyframes yellowTopDouble-4 {
+    0% {
+        transform: rotate3d(0, 0, 0, calc(var(--move-deg) * -1)) rotateX(90deg) rotateY(-90deg) rotateZ(0);
+    }
+
+    50% {
+        transform: rotate3d(0, -1, 0, calc(var(--move-deg) / 2)) rotateX(90deg) rotateY(-90deg) rotateZ(0);
+    }
+
+    100% {
+        transform: rotate3d(0, -1, 0, calc(var(--move-deg))) rotateX(90deg) rotateY(-90deg) rotateZ(0);
+    }
+}
+
+/* Spin middle (vertical) row from the front (previously green) side of the cube. */
+/* Single move (one step) */
+section:has(fieldset[data-layer="5"]:valid)+section+article>span:nth-child(8),
+section:has(fieldset[data-layer="5"]:valid)+section+article>span:nth-child(17) {
+    animation: greenMiddleDown var(--animation-timing) var(--curve) forwards 0ms;
+}
+
+@keyframes greenMiddleDown {
+    0% {
+        transform: rotate3d(0, -1, 0, calc(var(--move-deg))) rotateX(-90deg) rotateY(-180deg);
+    }
+
+    100% {
+        transform: rotate3d(0, -1, 0, calc(var(--move-deg))) rotateX(0deg) rotateY(-180deg);
+    }
+}
+
+section:has(fieldset[data-layer="5"]:valid)+section+article>span:nth-child(6) {
+    animation: greenMiddleDown-2 var(--animation-timing) var(--curve) forwards 0ms;
+}
+
+@keyframes greenMiddleDown-2 {
+    0% {
+        transform: rotate3d(0, 1, 0, calc(var(--move-deg) * -1)) rotateX(90deg) rotateY(-90deg) rotateZ(0);
+    }
+
+    100% {
+        transform: rotate3d(0, 1, 0, calc(var(--move-deg) * -1)) rotateX(180deg) rotateY(-90deg) rotateZ(0);
+    }
+}
+
+section:has(fieldset[data-layer="5"]:valid)+section+article>span:nth-child(13),
+section:has(fieldset[data-layer="5"]:valid)+section+article>span:nth-child(21),
+section:has(fieldset[data-layer="5"]:valid)+section+article>span:nth-child(26) {
+    animation: greenMiddleDown-3 var(--animation-timing) var(--curve) forwards 0ms;
+}
+
+@keyframes greenMiddleDown-3 {
+    0% {
+        transform: rotate3d(0, 0, 0, calc(var(--move-deg))) rotateX(90deg) rotateY(0deg);
+    }
+
+    100% {
+        transform: rotate3d(0, 0, 0, calc(var(--move-deg))) rotateX(0deg) rotateY(0deg);
+    }
+}
+
+section:has(fieldset[data-layer="5"]:valid)+section+article>span:nth-child(2),
+section:has(fieldset[data-layer="5"]:valid)+section+article>span:nth-child(9) {
+    animation: greenMiddleDown-4 var(--animation-timing) var(--curve) forwards 0ms;
+}
+
+@keyframes greenMiddleDown-4 {
+    0% {
+        transform: rotate3d(1, 0, 0, calc(var(--move-deg) / 2)) rotateX(0deg) rotateY(-90deg);
+    }
+
+    100% {
+        transform: rotate3d(1, 0, 0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-90deg);
+    }
+}
+
+/* Spin the top (yellow) side one turns clockwise (left). */
+/* Single move (one steps) */
+section:has(fieldset[data-layer="6"]:valid)+section+article>span:nth-child(3),
+section:has(fieldset[data-layer="6"]:valid)+section+article>span:nth-child(4),
+section:has(fieldset[data-layer="6"]:valid)+section+article>span:nth-child(5) {
+    animation: yellowTopLeftLast var(--animation-timing) var(--curve) forwards 0ms;
+}
+
+@keyframes yellowTopLeftLast {
+    0% {
+        transform: rotate3d(1, 0, 0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-270deg);
+    }
+
+    100% {
+        transform: rotate3d(1, 0, 0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-360deg);
+    }
+}
+
+section:has(fieldset[data-layer="6"]:valid)+section+article>span:nth-child(8) {
+    animation: yellowTopLeftLast-2 var(--animation-timing) var(--curve) forwards 0ms;
+}
+
+@keyframes yellowTopLeftLast-2 {
+    0% {
+        transform: rotate3d(0, -1, 0, calc(var(--move-deg))) rotateX(0deg) rotateY(-180deg);
+    }
+
+    100% {
+        transform: rotate3d(0, -1, 0, calc(var(--move-deg))) rotateX(0deg) rotateY(-270deg);
+    }
+}
+
+section:has(fieldset[data-layer="6"]:valid)+section+article>span:nth-child(9),
+section:has(fieldset[data-layer="6"]:valid)+section+article>span:nth-child(2) {
+    animation: yellowTopLeftLast-3 var(--animation-timing) var(--curve) forwards 0ms;
+}
+
+@keyframes yellowTopLeftLast-3 {
+    0% {
+        transform: rotate3d(1, 0, 0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-90deg);
+    }
+
+    100% {
+        transform: rotate3d(1, 0, 0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-180deg);
+    }
+}
+
+section:has(fieldset[data-layer="6"]:valid)+section+article>span:nth-child(24),
+section:has(fieldset[data-layer="6"]:valid)+section+article>span:nth-child(25),
+section:has(fieldset[data-layer="6"]:valid)+section+article>span:nth-child(18) {
+    animation: yellowTopLeftLast-4 var(--animation-timing) var(--curve) forwards 0ms;
+}
+
+@keyframes yellowTopLeftLast-4 {
+    0% {
+        transform: rotate3d(-2, 0, 2, var(--move-deg)) rotateY(180deg);
+    }
+
+    100% {
+        transform: rotate3d(-2, 0, 2, var(--move-deg)) rotateY(270deg);
+    }
+}
+
+
+/* Spin the front side (green side) of the cube. */
+/* Double move (two steps) */
+section:has(fieldset[data-layer="7"]:valid)+section+article>span:nth-child(1),
+section:has(fieldset[data-layer="7"]:valid)+section+article>span:nth-child(7),
+section:has(fieldset[data-layer="7"]:valid)+section+article>span:nth-child(16),
+section:has(fieldset[data-layer="7"]:valid)+section+article>span:nth-child(10) {
+    animation: greenFrontLast calc(var(--animation-timing) * 2) var(--curve) forwards 0ms;
+}
+
+@keyframes greenFrontLast {
+    0% {
+        transform: rotate3d(0, 0, 1, var(--move-deg));
+    }
+
+    50% {
+        transform: rotate3d(0, 0, 1, calc((var(--move-deg) / 2)));
+    }
+
+    100% {
+        transform: rotate3d(0, 0, 0, var(--move-deg));
+    }
+}
+
+section:has(fieldset[data-layer="7"]:valid)+section+article>span:nth-child(24),
+section:has(fieldset[data-layer="7"]:valid)+section+article>span:nth-child(25),
+section:has(fieldset[data-layer="7"]:valid)+section+article>span:nth-child(18) {
+    animation: greenFrontLast-2 calc(var(--animation-timing) * 2) var(--curve) forwards 0ms;
+}
+
+@keyframes greenFrontLast-2 {
+    0% {
+        transform: rotate3d(0, 0, 0, var(--move-deg)) rotateZ(180deg);
+    }
+
+    50% {
+        transform: rotate3d(0, 0, 0, var(--move-deg)) rotateZ(90deg);
+    }
+
+    100% {
+        transform: rotate3d(0, 0, 0, var(--move-deg)) rotateZ(0deg);
+    }
+}
+
+section:has(fieldset[data-layer="7"]:valid)+section+article>span:nth-child(17) {
+    animation: greenFrontLast-3 calc(var(--animation-timing) * 2) var(--curve) forwards 0ms;
+}
+
+@keyframes greenFrontLast-3 {
+    0% {
+        transform: rotate3d(0, 0, 0, var(--move-deg)) rotateZ(180deg);
+    }
+
+    50% {
+        transform: rotate3d(0, 0, 0, var(--move-deg)) rotateZ(90deg);
+    }
+
+    100% {
+        transform: rotate3d(0, 0, 0, var(--move-deg)) rotateZ(0deg);
+    }
+}
+
+section:has(fieldset[data-layer="7"]:valid)+section+article>span:nth-child(6) {
+    animation: greenFrontLast-4 calc(var(--animation-timing) * 2) var(--curve) forwards 0ms;
+}
+
+@keyframes greenFrontLast-4 {
+    0% {
+        transform: rotateX(90deg) rotateY(90deg) rotateZ(90deg);
+    }
+
+    50% {
+        transform: rotateX(90deg) rotateY(0deg) rotateZ(90deg);
+    }
+
+    100% {
+        transform: rotateX(90deg) rotateY(-90deg) rotateZ(90deg);
+    }
+}

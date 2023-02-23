@@ -1,0 +1,117 @@
+section[data-layer="finish"],
+fieldset:not([data-layer="1"]) {
+    transform: translateX(100%);
+}
+
+
+section:has(input[name="box-puzzle"]) p {
+    text-align: center;
+    font-size: 1.3em;
+    opacity: 0;
+    transform: translateY(-100%);
+}
+
+section:has(fieldset[data-layer="1"]:valid) p {
+    animation: next 1s forwards ease;
+}
+
+section:has(fieldset[data-layer="1"]:valid) fieldset[data-layer="1"] {
+    animation: fadeOut 500ms forwards ease;
+    animation-delay: 750ms;
+}
+
+section:has(fieldset[data-layer="1"]:valid) fieldset[data-layer="2"] {
+    animation: fadeIn 1s forwards ease;
+    animation-delay: 500ms;
+}
+
+section:has(fieldset[data-layer="2"]:valid) p {
+    animation: next2 1s forwards ease;
+}
+
+section:has(fieldset[data-layer="2"]:valid) fieldset[data-layer="2"] {
+    transform: translateX(0);
+    animation: fadeOut 500ms forwards ease;
+    animation-delay: 500ms;
+}
+
+section:has(fieldset[data-layer="2"]:valid) fieldset[data-layer="3"] {
+    animation: fadeIn 1s forwards ease;
+    animation-delay: 750ms;
+}
+
+section:has(fieldset[data-layer="3"]:valid) p {
+    animation: next 1s forwards ease;
+}
+
+section:has(fieldset[data-layer="3"]:valid) fieldset[data-layer="3"] {
+    transform: translateX(0);
+    animation: fadeOut 500ms forwards ease;
+    animation-delay: 500ms;
+}
+
+section:has(fieldset[data-layer="3"]:valid) fieldset[data-layer="4"] {
+    animation: fadeIn 1s forwards ease;
+    animation-delay: 750ms;
+}
+
+section:has(fieldset[data-layer="4"]:valid) p {
+    animation: next2 1s forwards ease;
+}
+
+section:has(fieldset[data-layer="4"]:valid) fieldset[data-layer="4"] {
+    transform: translateX(0);
+    animation: fadeOut 500ms forwards ease;
+    animation-delay: 500ms;
+}
+
+section:has(fieldset[data-layer="4"]:valid) fieldset[data-layer="5"] {
+    animation: fadeIn 1s forwards ease;
+    animation-delay: 750ms;
+}
+
+
+section:has(fieldset[data-layer="5"]:valid) p {
+    animation: next 1s forwards ease;
+}
+
+section:has(fieldset[data-layer="5"]:valid) fieldset[data-layer="5"] {
+    transform: translateX(0);
+    animation: fadeOut 500ms forwards ease;
+    animation-delay: 500ms;
+}
+
+section:has(fieldset[data-layer="5"]:valid) fieldset[data-layer="6"] {
+    animation: fadeIn 1s forwards ease;
+    animation-delay: 750ms;
+}
+
+section:has(fieldset[data-layer="6"]:valid) p {
+    animation: next2 1s forwards ease;
+}
+
+section:has(fieldset[data-layer="6"]:valid) fieldset[data-layer="6"] {
+    transform: translateX(0);
+    animation: fadeOut 500ms forwards ease;
+    animation-delay: 500ms;
+}
+
+section:has(fieldset[data-layer="6"]:valid) fieldset[data-layer="7"] {
+    animation: fadeIn 1s forwards ease;
+    animation-delay: 750ms;
+}
+
+section:has(fieldset[data-layer="7"]:valid) p {
+    animation: next 1s forwards ease;
+}
+
+section:has(fieldset[data-layer="7"]:valid) fieldset[data-layer="7"] {
+    transform: translateX(0);
+    animation: fadeOut 500ms forwards ease;
+    animation-delay: 500ms;
+}
+
+section:has(fieldset[data-layer="7"]:valid) section[data-layer="finish"] {
+    animation: fadeIn 1s forwards ease;
+    animation-delay: 750ms;
+}

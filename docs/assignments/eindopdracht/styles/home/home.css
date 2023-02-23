@@ -1,0 +1,73 @@
+dialog {
+    display: flex;
+    /* CHANGE me to flex */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: var(--base-offset);
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    /* text-align: center; */
+    background-color: rgba(0, 0, 0, 1);
+    border: none;
+    z-index: 0;
+}
+
+dialog:after {
+    background: #333;
+    /* height: 50%; */
+    /* width: 50%; */
+    position: absolute;
+    /* content: ""; */
+    inset: 0;
+    margin: auto;
+    z-index: -1;
+}
+
+dialog p:first-of-type {
+    margin-top: var(--base-offset);
+}
+
+dialog input:hover {
+    background-color: #444;
+}
+
+dialog input::before {
+    content: "Start Solving";
+    margin: auto;
+}
+
+dialog input[disabled]::before {
+    content: "🔒";
+}
+
+dialog input[disabled]:hover::before {
+    content: "Preview - 🔒";
+}
+
+
+dialog:has(input:checked) {
+    display: none;
+}
+
+
+dialog>section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}
+
+dialog>section>section {
+    display: flex;
+    flex-direction: column;
+
+
+    /* justify-content: center; */
+    /* align-items: center; */
+    height: 200px;
+    width: 200px;
+    background-color: darkblue;
+    font-size: 14px;
+}

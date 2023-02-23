@@ -1,0 +1,309 @@
+/* Lets build a cube out of CSS */
+/* Made by Stefan Radouane */
+
+/*                    */
+/* Define some colors */
+/*                    */
+span[data-color="yellow"] {
+    background-color: yellow;
+}
+
+span[data-color="white"] {
+    background-color: white;
+}
+
+span[data-color="red"] {
+    background-color: red;
+}
+
+span[data-color="green"] {
+    background-color: green;
+}
+
+span[data-color="blue"] {
+    background-color: blue;
+}
+
+span[data-color="orange"] {
+    background-color: orange;
+}
+
+
+
+/* Corner point could be a: 
+ * Corner piece (contains 3 sides)
+ * Row piece (contains 2 sides)
+ * Centrer piece (contains 1 side)
+*/
+
+span:not(span > span) {
+    position: absolute;
+    display: block;
+    /* transition: 200ms; */
+    background: transparent;
+    transform-style: preserve-3d;
+    width: calc(var(--object-size) * 3);
+    height: calc(var(--object-size) * 3);
+}
+
+/* The styling for a corner piece */
+span>span {
+    position: absolute;
+    display: block;
+    width: var(--object-size);
+    height: var(--object-size);
+    opacity: 0.9;
+}
+
+
+/*                */
+/* Build the Cube */
+/*                */
+
+/* TOP PART */
+/* BLOCK TOP FRONT LEFT */
+span:nth-of-type(1) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * 0)) translateZ(calc(var(--object-size) * 1.5)) translateX(calc(var(--object-size) * 0)) rotateX(0);
+}
+
+span:nth-of-type(1) span:nth-of-type(2) {
+    transform: translateY(calc(var(--object-size) * 0)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * -0.5)) rotateY(90deg);
+}
+
+span:nth-of-type(1) span:nth-of-type(3) {
+    transform: translateY(calc(var(--object-size) * -0.5)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * 0)) rotateX(90deg);
+}
+
+/* BLOCK TOP MIDDLE LEFT */
+span:nth-of-type(2) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * 0)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * -0.5)) rotateY(90deg);
+}
+
+span:nth-of-type(2) span:nth-of-type(2) {
+    transform: translateY(calc(var(--object-size) * -0.5)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * 0)) rotateX(90deg);
+}
+
+/* BLOCK TOP BACK LEFT */
+span:nth-of-type(3) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * 0)) translateZ(calc(var(--object-size) * -1.5)) translateX(calc(var(--object-size) * 0)) rotateX(0);
+}
+
+span:nth-of-type(3) span:nth-of-type(2) {
+    transform: translateY(calc(var(--object-size) * 0)) translateZ(calc(var(--object-size) * -1)) translateX(calc(var(--object-size) * -0.5)) rotateY(90deg);
+}
+
+span:nth-of-type(3) span:nth-of-type(3) {
+    transform: translateY(calc(var(--object-size) * -0.5)) translateZ(calc(var(--object-size) * -1)) translateX(calc(var(--object-size) * 0)) rotateX(90deg);
+}
+
+/* BLOCK TOP BACK BACK */
+span:nth-of-type(4) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * -0.5)) translateZ(calc(var(--object-size) * -1)) translateX(calc(var(--object-size) * 1)) rotateX(90deg);
+}
+
+span:nth-of-type(4) span:nth-of-type(2) {
+    transform: translateY(calc(var(--object-size) * 0)) translateZ(calc(var(--object-size) * -1.5)) translateX(calc(var(--object-size) * 1)) rotateX(0);
+}
+
+/* BLOCK TOP BACK RIGHT */
+span:nth-of-type(5) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * 0)) translateZ(calc(var(--object-size) * -1.5)) translateX(calc(var(--object-size) * 2)) rotateX(0);
+}
+
+span:nth-of-type(5) span:nth-of-type(2) {
+    transform: translateY(calc(var(--object-size) * 0)) translateZ(calc(var(--object-size) * -1)) translateX(calc(var(--object-size) * 2.5)) rotateY(90deg);
+}
+
+span:nth-of-type(5) span:nth-of-type(3) {
+    transform: translateY(calc(var(--object-size) * -0.5)) translateZ(calc(var(--object-size) * -1)) translateX(calc(var(--object-size) * 2)) rotateX(90deg);
+}
+
+/* BLOCK TOP MIDDLE RIGHT */
+span:nth-of-type(6) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * 0)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * 2.5)) rotateY(90deg);
+}
+
+span:nth-of-type(6) span:nth-of-type(2) {
+    transform: translateY(calc(var(--object-size) * -0.5)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * 2)) rotateX(90deg);
+}
+
+/* BLOCK TOP FRONT LEFT */
+span:nth-of-type(7) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * 0)) translateZ(calc(var(--object-size) * 1.5)) translateX(calc(var(--object-size) * 2)) rotateX(0);
+}
+
+span:nth-of-type(7) span:nth-of-type(2) {
+    transform: translateY(calc(var(--object-size) * 0)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * 2.5)) rotateY(90deg);
+}
+
+span:nth-of-type(7) span:nth-of-type(3) {
+    transform: translateY(calc(var(--object-size) * -0.5)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * 2)) rotateX(90deg);
+}
+
+/* BLOCK TOP BACK BACK */
+span:nth-of-type(8) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * -0.5)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * 1)) rotateX(90deg);
+}
+
+span:nth-of-type(8) span:nth-of-type(2) {
+    transform: translateY(calc(var(--object-size) * 0)) translateZ(calc(var(--object-size) * 1.5)) translateX(calc(var(--object-size) * 1)) rotateX(0);
+}
+
+/* BLOCK TOP MIDDLE MIDDLE */
+span:nth-of-type(9) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * -0.5)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * 1)) rotateX(90deg);
+}
+
+/* MIDDLE PART */
+/* BLOCK MIDDLE FRONT LEFT */
+span:nth-of-type(10) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * 1.5)) translateX(calc(var(--object-size) * 0)) rotateX(0);
+}
+
+span:nth-of-type(10) span:nth-of-type(2) {
+    transform: translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * -0.5)) rotateY(90deg);
+}
+
+/* BLOCK MIDDLE MIDDLE LEFT */
+span:nth-of-type(11) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * -0.5)) rotateY(90deg);
+}
+
+/* BLOCK MIDDLE BACK LEFT */
+span:nth-of-type(12) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * -1.5)) translateX(calc(var(--object-size) * 0)) rotateX(0);
+}
+
+span:nth-of-type(12) span:nth-of-type(2) {
+    transform: translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * -1)) translateX(calc(var(--object-size) * -0.5)) rotateY(90deg);
+}
+
+/* BLOCK MIDDLE BACK BACK */
+span:nth-of-type(13) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * -1.5)) translateX(calc(var(--object-size) * 1)) rotateX(0);
+}
+
+/* BLOCK MIDDLE BACK RIGHT */
+span:nth-of-type(14) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * -1.5)) translateX(calc(var(--object-size) * 2)) rotateX(0);
+}
+
+span:nth-of-type(14) span:nth-of-type(2) {
+    transform: translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * -1)) translateX(calc(var(--object-size) * 2.5)) rotateY(90deg);
+}
+
+/* BLOCK MIDDLE MIDDLE RIGHT */
+span:nth-of-type(15) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * 2.5)) rotateY(90deg);
+}
+
+/* BLOCK MIDDLE FRONT LEFT */
+span:nth-of-type(16) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * 1.5)) translateX(calc(var(--object-size) * 2)) rotateX(0);
+}
+
+span:nth-of-type(16) span:nth-of-type(2) {
+    transform: translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * 2.5)) rotateY(90deg);
+}
+
+/* BLOCK MIDDLE BACK BACK */
+span:nth-of-type(17) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * 1.5)) translateX(calc(var(--object-size) * 1)) rotateX(0);
+}
+
+/*        */
+/* BOTTOM */
+/*        */
+
+/* BLOCK TOP FRONT LEFT */
+span:nth-of-type(18) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * 1.5)) translateX(calc(var(--object-size) * 0)) rotateX(0);
+}
+
+span:nth-of-type(18) span:nth-of-type(2) {
+    transform: translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * -0.5)) rotateY(90deg);
+}
+
+span:nth-of-type(18) span:nth-of-type(3) {
+    transform: translateY(calc(var(--object-size) * 2.5)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * 0)) rotateX(90deg);
+}
+
+/* BLOCK TOP MIDDLE LEFT */
+span:nth-of-type(19) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * -0.5)) rotateY(90deg);
+}
+
+span:nth-of-type(19) span:nth-of-type(2) {
+    transform: translateY(calc(var(--object-size) * 2.5)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * 0)) rotateX(90deg);
+}
+
+/* BLOCK TOP BACK LEFT */
+span:nth-of-type(20) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * -1.5)) translateX(calc(var(--object-size) * 0)) rotateX(0);
+}
+
+span:nth-of-type(20) span:nth-of-type(2) {
+    transform: translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * -1)) translateX(calc(var(--object-size) * -0.5)) rotateY(90deg);
+}
+
+span:nth-of-type(20) span:nth-of-type(3) {
+    transform: translateY(calc(var(--object-size) * 2.5)) translateZ(calc(var(--object-size) * -1)) translateX(calc(var(--object-size) * 0)) rotateX(90deg);
+}
+
+/* BLOCK TOP BACK BACK */
+span:nth-of-type(21) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * 2.5)) translateZ(calc(var(--object-size) * -1)) translateX(calc(var(--object-size) * 1)) rotateX(90deg);
+}
+
+span:nth-of-type(21) span:nth-of-type(2) {
+    transform: translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * -1.5)) translateX(calc(var(--object-size) * 1)) rotateX(0);
+}
+
+/* BLOCK BOTTOM BACK RIGHT */
+span:nth-of-type(22) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * -1.5)) translateX(calc(var(--object-size) * 2)) rotateX(0);
+}
+
+span:nth-of-type(22) span:nth-of-type(2) {
+    transform: translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * -1)) translateX(calc(var(--object-size) * 2.5)) rotateY(90deg);
+}
+
+span:nth-of-type(22) span:nth-of-type(3) {
+    transform: translateY(calc(var(--object-size) * 2.5)) translateZ(calc(var(--object-size) * -1)) translateX(calc(var(--object-size) * 2)) rotateX(90deg);
+}
+
+/* BLOCK TOP MIDDLE RIGHT */
+span:nth-of-type(23) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * 2.5)) rotateY(90deg);
+}
+
+span:nth-of-type(23) span:nth-of-type(2) {
+    transform: translateY(calc(var(--object-size) * 2.5)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * 2)) rotateX(90deg);
+}
+
+/* BLOCK TOP FRONT LEFT */
+span:nth-of-type(24) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * 1.5)) translateX(calc(var(--object-size) * 2)) rotateX(0);
+}
+
+span:nth-of-type(24) span:nth-of-type(2) {
+    transform: translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * 2.5)) rotateY(90deg);
+}
+
+span:nth-of-type(24) span:nth-of-type(3) {
+    transform: translateY(calc(var(--object-size) * 2.5)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * 2)) rotateX(90deg);
+}
+
+/* BLOCK TOP BACK BACK */
+span:nth-of-type(25) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * 2.5)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * 1)) rotateX(90deg);
+}
+
+span:nth-of-type(25) span:nth-of-type(2) {
+    transform: translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * 1.5)) translateX(calc(var(--object-size) * 1)) rotateX(0);
+}
+
+/* BLOCK TOP MIDDLE MIDDLE */
+span:nth-of-type(26) span:nth-of-type(1) {
+    transform: translateY(calc(var(--object-size) * 2.5)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * 1)) rotateX(90deg);
+}

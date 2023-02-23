@@ -1,0 +1,96 @@
+/* SLIDER */
+
+/* EVENT LISTENERS VERTICAL SLIDER  */
+/* head[data-vertical-x^="0"] + body{ */
+/* background: yellow!important; */
+/* /* --h:-90deg;  */
+/* } */
+
+head[data-vertical-x^="0"]+body {
+    --h: -180deg;
+}
+
+head[data-vertical-value^="1"]:not([data-vertical-value="1"])+body {
+    --h: -144deg;
+}
+
+head[data-vertical-value^="2"]:not([data-vertical-value="2"])+body {
+    --h: -108deg;
+}
+
+head[data-vertical-value^="3"]:not([data-vertical-value="3"])+body {
+    --h: -72deg;
+}
+
+head[data-vertical-value^="4"]:not([data-vertical-value="4"])+body {
+    --h: -36deg;
+}
+
+head[data-vertical-value^="5"]:not([data-vertical-value="5"])+body {
+    --h: 0deg;
+}
+
+head[data-vertical-value^="6"]:not([data-vertical-value="6"])+body {
+    --h: 36deg;
+}
+
+head[data-vertical-value^="7"]:not([data-vertical-value="7"])+body {
+    --h: 72deg;
+}
+
+head[data-vertical-value^="8"]:not([data-vertical-value="8"])+body {
+    --h: 108deg;
+}
+
+head[data-vertical-value^="9"]:not([data-vertical-value="9"])+body {
+    --h: 144deg;
+}
+
+head[data-vertical-value^="10"]:not([data-vertical-value="10"])+body {
+    --h: 180deg;
+}
+
+/* EVENT LISTENERS HORIZONTAL SLIDER */
+head[data-horizontal-x^="0"]+body {
+    --deg: calc(36deg * -5);
+}
+
+head[data-horizontal-value^="1"]:not([data-horizontal-value="1"])+body {
+    --deg: calc(36deg * -4);
+}
+
+head[data-horizontal-value^="2"]:not([data-horizontal-value="2"])+body {
+    --deg: calc(36deg * -3);
+}
+
+head[data-horizontal-value^="3"]:not([data-horizontal-value="3"])+body {
+    --deg: calc(36deg * -2);
+}
+
+head[data-horizontal-value^="4"]:not([data-horizontal-value="4"])+body {
+    --deg: calc(36deg * -1);
+}
+
+head[data-horizontal-value^="5"]:not([data-horizontal-value="5"])+body {
+    --deg: calc(36deg * 0);
+}
+
+head[data-horizontal-value^="6"]:not([data-horizontal-value="6"])+body {
+    --deg: calc(36deg * 1);
+}
+
+head[data-horizontal-value^="7"]:not([data-horizontal-value="7"])+body {
+    --deg: calc(36deg * 2);
+}
+
+head[data-horizontal-value^="8"]:not([data-horizontal-value="8"])+body {
+    --deg: calc(36deg * 3);
+}
+
+head[data-horizontal-value^="9"]:not([data-horizontal-value="9"])+body {
+    --deg: calc(36deg * 4);
+}
+
+head[data-horizontal-value^="10"]:not([data-horizontal-value="10"])+body {
+    --deg: calc(36deg * 5);
+}

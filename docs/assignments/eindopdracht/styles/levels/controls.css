@@ -1,0 +1,7 @@
+section[data-level-layers] {
+    display: none;
+}
+
+body:has(dialog input[data-level="7"]:checked) section[data-level-layers="7"] {
+    display: block;
+}

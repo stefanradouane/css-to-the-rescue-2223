@@ -1,1145 +1,173 @@
+@import "./cube.css";
+@import "./input.css";
+@import "./home/home.css";
+@import "./fieldset.css";
+@import "./levels/all.css";
+@import "./rotatecube.css";
+
 @font-face {
-    font-family: 'Rocher';
-    src: url('../assets/fonts/RocherColorGX.woff2');
+    font-family: "Rocher";
+    src: url("../assets/fonts/RocherColorGX.woff2");
 }
 
 @font-palette-values --base {
-    font-family: 'Rocher';
+    font-family: "Rocher";
     base-palette: 2;
 }
 
-*{
-    font-family: 'Rocher';
-    margin:0;
-    padding:0;
+* {
+    font-family: "Rocher";
+
+    /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+    color: white;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-palette: --base;
-    /* transition: 200ms all; */
 }
 
-html{
+html {
     overflow: hidden;
 }
 
-:root{
+:root {
     --base-color: crimson;
     --dark-base-color: rgb(80 0 20);
-    --object-size:50px;
+    --object-size: 50px;
     --move-deg: 180deg;
-    --base-offset:1em;
-    --current-level:"1";
+    --base-offset: 1em;
+    --current-level: "1";
+    --curve: cubic-bezier(0.5, 1, 0.7, 1.4);
+    --animation-timing: 500ms;
+    /* --curve:cubic-bezier(.49,.99,.58,1.2); */
+    /* --curve:cubic-bezier(.55,.2,.78,1.23); */
+    /* --curve:cubic-bezier(.69,.99,.79,1.29); */
 }
 
-:root:has(input[name="end"]:checked){
-    --current-level:"loser";
-}
-:root:has(fieldset[data-layer="1"]:valid){
-    --current-level:"2";
-}
-:root:has(fieldset[data-layer="2"]:valid){
-    --current-level:"3";
+:root:has(input[name="end"]:checked) {
+    --current-level: "loser";
 }
 
+:root:has(fieldset[data-layer="1"]:valid) {
+    --current-level: "2";
+}
 
-@media only screen and (min-width: 500px){
-    :root{
-        --object-size:75px;
-        --base-offset:1.2em;
+:root:has(fieldset[data-layer="2"]:valid) {
+    --current-level: "3";
+}
 
+@media only screen and (min-width: 500px) {
+    :root {
+        --object-size: 75px;
+        --base-offset: 1.2em;
     }
 }
 
-@media only screen and (min-width: 1000px){
-    :root{
-        --object-size:100px;
-        --base-offset:1.4em;
+@media only screen and (min-width: 1000px) {
+    :root {
+        --object-size: 100px;
+        --base-offset: 1.4em;
     }
 }
-
-/* head[data-vertical-value="0"] + body{
-    --deg:; 
-    padding:var(--l);   
-} */
 
 body {
-    --deg: 180deg;
-    --h: 90deg;
-
     height: 100vh;
     height: 100dvh;
     width: 100%;
 
     background: var(--base-color);
-    background: radial-gradient(circle, var(--base-color) 0%, var(--dark-base-color) 100%);
+    background: radial-gradient(circle,
+            var(--base-color) 0%,
+            var(--dark-base-color) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow:hidden;
+    overflow: hidden;
     flex-direction: column;
-    perspective: 750px;
+    perspective: 800px;
+}
+
+body>form {
+    display: contents;
 }
 
 
-header{
+header {
     position: absolute;
     inset: 0 0 auto 0;
-    padding:var(--base-offset);
+    padding: var(--base-offset);
 }
 
-header p::after{
+header p::after {
     content: var(--current-level);
     margin-left: calc(var(--base-offset) / 3);
 }
 
 
-dialog{
-    display: flex; /* CHANGE me to flex */
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: var(--base-offset);
-    margin: auto;
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    border: none;
-    z-index: 0;
-}
-
-dialog:after{
-    background: #333;
-    height: 50%;
-    width: 50%;
-    position: absolute;
-    content: '';
-    inset: 0;
-    margin: auto;
-    z-index: -1;
-}
-
-dialog p:first-of-type{
-    margin-top: var(--base-offset);
-}
-
-dialog input{
-    appearance: none;
-    position: relative;
-    margin-top: var(--base-offset);
-    padding: calc(var(--base-offset) / 2) var(--base-offset);
-    background-color: grey;
-}
-
-dialog input:hover{
-    background-color: #444;
-}
-
-
-
-dialog input::before{
-    content: 'Start Solving';
-    /* position: absolute; */
-    /* left: 50%; */
-    /* transform: translateX(-50%); */
-    /* appearance: none; */
-}
-
-dialog:has(input:checked){
-    opacity: 0;
-    visibility: hidden;
-}
-
-
-
-
 /* V2 */
 
-
-article{
+article {
     transition: 300ms all;
     position: relative;
     display: block;
     width: calc(var(--object-size) * 3);
     height: calc(var(--object-size) * 3);
     transform-style: preserve-3d;
-    transform:rotateX(var(--h)) rotateY(var(--deg));
+    transform: rotateX(var(--h)) rotateY(var(--deg));
 }
 
-article span:not(article > span){
+/* 
+article span:not(article > span) {
     position: absolute;
     display: block;
-    /* background: white; */
-    width: var(--object-size);
-    height: var(--object-size);
-    opacity: .9;
+    /* background: white; 
+width: var(--object-size);
+height: var(--object-size);
+opacity: 0.9;
 }
 
-article > span{
+article>span {
     position: absolute;
     display: block;
-    /* transition: 200ms; */
+    /* transition: 200ms; 
     background: transparent;
     transform-style: preserve-3d;
     width: calc(var(--object-size) * 3);
     height: calc(var(--object-size) * 3);
 }
 
-span[data-color="yellow"]{
-    background-color: yellow;
-}
-span[data-color="white"]{
-    background-color: white;
-}
-span[data-color="red"]{
-    background-color: red;
-}
-span[data-color="green"]{
-    background-color: green;
-}
+*/
 
-span[data-color="blue"]{
-    background-color: blue;
-}
 
-span[data-color="orange"]{
-    background-color: orange;
-}
-
-input[type="range"]{
-    position: absolute;
-}
-
-input[type="range"]:not([aria-orientation="vertical"]){
-    bottom: var(--base-offset);
-}
-
-input[type="range"][aria-orientation="vertical"]{
-    left: var(--base-offset);
-    transform: rotate(-90deg) translateX(-50%);
-    transform-origin: left;
-    top: 50%;
-}
-
-/*           */
-/* SPIN CUBE */
-/*           */
-
-/* :root:has(fieldset[data-layer="1"]:valid){ */
-:root{
-    --first-spin: 1;
-    --second-spin: 1;
-}
-/* 
-body:has(dialog > input:checked) article > span:nth-child(n + 1):nth-child(-n + 9) {
-    transition: 0ms all 1s;
-    transform: rotateX(calc(var(--move-deg) * 0)) rotateY(calc(var(--move-deg) * var(--first-spin)));
-    animation: first-spin-top 500ms ease forwards 500ms;
-}
-
-body:has(dialog > input:checked) article > span:nth-child(n + 3):nth-child(-n + 5){
-    transition: 0ms all 1s;
-    transform: rotateX(calc(var(--move-deg) * var(--first-spin))) rotateY(calc(var(--move-deg) * var(--first-spin)));
-    animation: first-spin-top-side 500ms ease forwards 500ms;
-}
-
-body:has(dialog > input:checked) article > span:nth-child(n+10):nth-child(-n+12), 
-body:has(dialog > input:checked) article > span:nth-child(n+18):nth-child(-n+20){
-    transition: 0ms all 1s;
-    transform: rotateX(calc(var(--move-deg) * var(--first-spin))) rotateY(calc(var(--move-deg) * var(--first-spin)));
-    animation: first-spin-side 500ms ease forwards 500ms;
-} */
-
-
-/* body:has(dialog > input:checked) article > span:nth-child(n+1):nth-child(-n+3) { */
-    /* transition: 0ms all 1.5s; */
-    /* transform: rotateX(calc(var(--move-deg) * var(--first-spin))) rotateY(calc(var(--move-deg) * var(--first-spin))); */
-    /* animation: second-spin-side 500ms ease forwards 1s; */
-/* } */
-
-
-
-
-section:has(fieldset[data-layer="1"]:valid) + section + article > span:nth-child(1){
-    animation: first-spin-front 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="1"]:valid) + section + article > span:nth-child(7){
-    animation: first-spin-front 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="1"]:valid) + section + article > span:nth-child(8){
-    animation: first-spin-front 500ms ease forwards 0ms;
-}
-
-section:has(fieldset[data-layer="1"]:valid) + section + article > span:nth-child(10){
-    animation: first-spin-front 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="1"]:valid) + section + article > span:nth-child(16){
-    animation: first-spin-front 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="1"]:valid) + section + article > span:nth-child(17){
-    animation: first-spin-front 500ms ease forwards 0ms;
-}
-
-section:has(fieldset[data-layer="1"]:valid) + section + article > span:nth-child(18){
-    animation: first-spin-front 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="1"]:valid) + section + article > span:nth-child(25){
-    animation: first-spin-front 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="1"]:valid) + section + article > span:nth-child(24){
-    animation: first-spin-front 500ms ease forwards 0ms;
-    /* transition:0ms all 900ms; */
-    /* transform: rotate3d(0,0,2, var(--move-deg)); */
-}
-
-section:has(fieldset[data-layer="2"]:valid) + section + article > span:nth-child(2){
-    animation: first-spin-top 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="2"]:valid) + section + article > span:nth-child(3){
-    animation: first-spin-top 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="2"]:valid) + section + article > span:nth-child(4){
-    animation: first-spin-top 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="2"]:valid) + section + article > span:nth-child(5){
-    animation: first-spin-top 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="2"]:valid) + section + article > span:nth-child(6){
-    animation: first-spin-top 500ms ease forwards 0ms;
-}
-
-section:has(fieldset[data-layer="2"]:valid) + section + article > span:nth-child(9){
-    animation: first-spin-top 500ms ease forwards 0ms;
-}
-
-section:has(fieldset[data-layer="2"]:valid) + section + article > span:nth-child(18){
-    animation: second-spin-top 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="2"]:valid) + section + article > span:nth-child(25){
-    animation: second-spin-top 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="2"]:valid) + section + article > span:nth-child(24){
-    animation: second-spin-top 500ms ease forwards 0ms;
-}
-
-section:has(fieldset[data-layer="3"]:valid) + section + article > span:nth-child(2){
-    animation: middle-spin 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="3"]:valid) + section + article > span:nth-child(6){
-    animation: middle-spin 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="3"]:valid) + section + article > span:nth-child(9){
-    animation: middle-spin 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="3"]:valid) + section + article > span:nth-child(8){
-    animation: middle-spin-2 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="3"]:valid) + section + article > span:nth-child(17){
-    animation: middle-spin-2 500ms ease forwards 0ms;
-}
-
-section:has(fieldset[data-layer="3"]:valid) + section + article > span:nth-child(21){
-    animation: middle-spin-3 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="3"]:valid) + section + article > span:nth-child(26){
-    animation: middle-spin-3 500ms ease forwards 0ms;
-}
-
-section:has(fieldset[data-layer="3"]:valid) + section + article > span:nth-child(13){
-    animation: middle-spin-3 500ms ease forwards 0ms;
-}
-
-section:has(fieldset[data-layer="4"]:valid) + section + article > span:nth-child(3){
-    animation: top-spin-1 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="4"]:valid) + section + article > span:nth-child(4){
-    animation: top-spin-1 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="4"]:valid) + section + article > span:nth-child(5){
-    animation: top-spin-1 500ms ease forwards 0ms;
-}
-
-section:has(fieldset[data-layer="4"]:valid) + section + article > span:nth-child(18){
-    animation: top-spin-2 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="4"]:valid) + section + article > span:nth-child(25){
-    animation: top-spin-2 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="4"]:valid) + section + article > span:nth-child(24){
-    animation: top-spin-2 500ms ease forwards 0ms;
-}
-
-section:has(fieldset[data-layer="4"]:valid) + section + article > span:nth-child(8){
-    animation: top-spin-3 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="4"]:valid) + section + article > span:nth-child(17){
-    animation: top-spin-3 500ms ease forwards 0ms;
-}
-
-section:has(fieldset[data-layer="4"]:valid) + section + article > span:nth-child(6){
-    animation: top-spin-4 500ms ease forwards 0ms;
-}
-
-
-
-section:has(fieldset[data-layer="5"]:valid) + section + article > span:nth-child(8){
-    animation: middle-spinner 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="5"]:valid) + section + article > span:nth-child(17){
-    animation: middle-spinner 500ms ease forwards 0ms;
-}
-
-section:has(fieldset[data-layer="5"]:valid) + section + article > span:nth-child(6){
-    animation: middle-spinner-2 500ms ease forwards 0ms;
-}
-
-
-section:has(fieldset[data-layer="5"]:valid) + section + article > span:nth-child(21){
-    animation: middle-spinner-3 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="5"]:valid) + section + article > span:nth-child(26){
-    animation: middle-spinner-3 500ms ease forwards 0ms;
-}
-
-section:has(fieldset[data-layer="5"]:valid) + section + article > span:nth-child(13){
-    animation: middle-spinner-3 500ms ease forwards 0ms;
-}
-
-section:has(fieldset[data-layer="5"]:valid) + section + article > span:nth-child(2){
-    animation: middle-spinner-4 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="5"]:valid) + section + article > span:nth-child(9){
-    animation: middle-spinner-4 500ms ease forwards 0ms;
-}
-
-
-section:has(fieldset[data-layer="6"]:valid) + section + article > span:nth-child(3){
-    animation: last-top-spinner 500ms ease forwards 0ms;
-}
-
-section:has(fieldset[data-layer="6"]:valid) + section + article > span:nth-child(4){
-    animation: last-top-spinner 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="6"]:valid) + section + article > span:nth-child(5){
-    animation: last-top-spinner 500ms ease forwards 0ms;
-}
-
-section:has(fieldset[data-layer="6"]:valid) + section + article > span:nth-child(8){
-    animation: last-top-spinner-2 500ms ease forwards 0ms;
-}
-
-section:has(fieldset[data-layer="6"]:valid) + section + article > span:nth-child(9){
-    animation: last-top-spinner-3 500ms ease forwards -400ms;
-}
-
-section:has(fieldset[data-layer="6"]:valid) + section + article > span:nth-child(2){
-    animation: last-top-spinner-3 500ms ease forwards -400ms;
-}
-
-section:has(fieldset[data-layer="6"]:valid) + section + article > span:nth-child(24){
-    animation: last-top-spinner-4 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="6"]:valid) + section + article > span:nth-child(25){
-    animation: last-top-spinner-4 500ms ease forwards 0ms;
-}
-section:has(fieldset[data-layer="6"]:valid) + section + article > span:nth-child(18){
-    animation: last-top-spinner-4 500ms ease forwards 0ms;
-}
-
-
-/* :nth-child(-n + 1)
-:nth-child(n + 7)
-:nth-child(-n + 8)
-:nth-child(n + 10)
-:nth-child(-n + 10)
-:nth-child(n + 16)
-:nth-child(-n + 18)
-:nth-child(n + 24)
-:nth-child(-n + 25) */
-
-
-/* section:has(fieldset[data-layer="1"]:valid) + section +  */
-    /* transform: rotateX(calc(var(--move-deg) * 0)) rotateY(calc(var(--move-deg) * var(--first-spin))); */
-    /* animation: first-spin-top 500ms ease forwards 400ms; */
-
-/* section:has(fieldset[data-layer="1"]:valid) + section +  */
-article > span:nth-child(n + 3):nth-child(-n + 5){
-    /* animation: first-spin-top-side 500ms ease forwards 400ms; */
-}
-
-/* section:has(fieldset[data-layer="1"]:valid) + section +  */
-/* section:has(fieldset[data-layer="1"]:valid) + section +  */
-article > span:nth-child(n+10):nth-child(-n+12), 
-article > span:nth-child(n+18):nth-child(-n+20){
-    /* animation: first-spin-side 500ms ease forwards 400ms; */
-}
-
-
-article > span:nth-child(n+10):nth-child(-n+12), 
-article > span:nth-child(n+18):nth-child(-n+20){
-    /* animation: first-spin-side 500ms ease forwards 400ms; */
-}
-
-
-
-
-/* article > span:nth-child(n+18):nth-child(-n+20){ */
-
-
-
-
-
-
-
-@keyframes first-spin-front {
-    0%{
-        transform: rotate3d(0,0,0, var(--move-deg));
-    }
-    
-    50%{
-        transform: rotate3d(0,0,2, var(--move-deg));
-    }
-    
-    100%{
-        transform: rotate3d(0,0,2, var(--move-deg));
-    }
-}
-
-@keyframes second-spin-top {
-    0%{
-        transform: rotate3d(0,0,2, var(--move-deg));
-    }
-    
-    50%{
-        transform: rotate3d(0,0,2, var(--move-deg));
-    }
-    
-    100%{
-        transform: rotate3d(-2,0,2, var(--move-deg));
-    }
-}
-
-@keyframes first-spin-top {
-    0%{
-        transform: rotate3d(0,0,0, var(--move-deg));
-    }
-    
-    50%{
-        transform: rotate3d(0,0,0, var(--move-deg));
-    }
-    
-    100%{
-        transform: rotate3d(1,0,0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-90deg);
-    }
-}
-
-
-@keyframes middle-spin {
-    0%{
-        transform: rotate3d(1,0,0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-90deg);
-    }
-    
-    50%{
-        transform: rotate3d(1,0,0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-90deg);
-    }
-    
-    100%{
-        transform: rotate3d(1,0,0, calc(var(--move-deg) / 2)) rotateX(0deg) rotateY(-90deg);
-    }
-}
-
-@keyframes middle-spin-2 {
-    0%{
-        transform: rotate3d(0,0,2, var(--move-deg));
-    }
-    
-    50%{
-        transform: rotate3d(0,0,2, var(--move-deg));
-    }
-    
-    100%{
-        transform: rotate3d(0,0,1, calc(var(--move-deg))) rotateX(-90deg) rotateY(0deg);
-    }
-}
-
-@keyframes middle-spin-3 {
-    0%{
-        transform: rotate3d(0,0,0, var(--move-deg));
-    }
-    
-    50%{
-        transform: rotate3d(0,0,0, var(--move-deg));
-    }
-    
-    100%{
-        transform: rotate3d(0,0,0, calc(var(--move-deg))) rotateX(90deg) rotateY(0deg);
-    }
-}
-
-@keyframes top-spin-1{
-    0%{
-        transform: rotate3d(1,0,0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-90deg);
-    }
-    
-    50%{
-        transform: rotate3d(1,0,0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-90deg);
-    }
-    
-    100%{
-        transform: rotate3d(1,0,0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-270deg);
-    }
-}
-
-@keyframes top-spin-2{
-    0%{
-        transform: rotate3d(-2,0,2, var(--move-deg));
-        /* transform: rotate3d(1,0,0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-90deg); */
-    }
-    
-    50%{
-        transform: rotate3d(-2,0,2, var(--move-deg));
-        /* transform: rotate3d(1,0,0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-90deg); */
-    }
-    
-    100%{
-        transform: rotate3d(-2,0,2, var(--move-deg)) rotateY(180deg);
-        /* transform: rotate3d(1,0,0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-270deg); */
-    }
-}
-
-@keyframes top-spin-3{
-    0%{
-        transform: rotate3d(0,0,0, calc(var(--move-deg) )) rotateX(-90deg) rotateY(-180deg);
-    }
-    
-    50%{
-        transform: rotate3d(0,0,0, calc(var(--move-deg) )) rotateX(-90deg) rotateY(-180deg);
-    }
-    
-    100%{
-        transform: rotate3d(0,-2,0, calc(var(--move-deg) )) rotateX(-90deg) rotateY(-180deg);
-    }
-}
-
-@keyframes top-spin-4{
-    0%{
-        transform: rotate3d(0,0,0, calc(var(--move-deg) * -1)) rotateX(90deg) rotateY(-90deg) rotateZ(0);
-    }
-    
-    50%{
-        transform: rotate3d(0,0,0, calc(var(--move-deg) * -1)) rotateX(90deg) rotateY(-90deg) rotateZ(0);
-    }
-    
-    100%{
-        transform: rotate3d(0,1,0, calc(var(--move-deg) * -1)) rotateX(90deg) rotateY(-90deg) rotateZ(0);
-    }
-}
-
-
-@keyframes middle-spinner{
-    0%{
-        transform: rotate3d(0,-1,0, calc(var(--move-deg) )) rotateX(-90deg) rotateY(-180deg)
-    }
-    
-    50%{
-        transform: rotate3d(0,-1,0, calc(var(--move-deg) )) rotateX(-90deg) rotateY(-180deg)
-    }
-    
-    100%{
-        transform: rotate3d(0,-1,0, calc(var(--move-deg) )) rotateX(0deg) rotateY(-180deg)
-    }
-}
-
-@keyframes middle-spinner-2{
-    0%{
-        transform: rotate3d(0,1,0, calc(var(--move-deg) * -1)) rotateX(90deg) rotateY(-90deg) rotateZ(0);
-    }
-    
-    50%{
-        transform: rotate3d(0,1,0, calc(var(--move-deg) * -1)) rotateX(90deg) rotateY(-90deg) rotateZ(0);
-    }
-    
-    100%{
-        transform: rotate3d(0,1,0, calc(var(--move-deg) * -1)) rotateX(180deg) rotateY(-90deg) rotateZ(0);
-    }
-}
-
-
-@keyframes middle-spinner-3{
-    0%{
-        transform: rotate3d(0,0,0, calc(var(--move-deg))) rotateX(90deg) rotateY(0deg);
-    }
-    
-    50%{
-        transform: rotate3d(0,0,0, calc(var(--move-deg))) rotateX(90deg) rotateY(0deg);
-    }
-    
-    100%{
-        transform: rotate3d(0,0,0, calc(var(--move-deg))) rotateX(0deg) rotateY(0deg);
-
-    }
-}
-
-@keyframes middle-spinner-4{
-    0%{
-        transform: rotate3d(1,0,0, calc(var(--move-deg) / 2)) rotateX(0deg) rotateY(-90deg);
-    }
-    
-    50%{
-        transform: rotate3d(1,0,0, calc(var(--move-deg) / 2)) rotateX(0deg) rotateY(-90deg);
-    }
-    
-    100%{
-        transform: rotate3d(1,0,0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-90deg);
-    }
-}
-
-@keyframes last-top-spinner{
-    0%{
-        transform: rotate3d(1,0,0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-270deg);
-
-    }
-    
-    50%{
-        transform: rotate3d(1,0,0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-270deg);
-    }
-    
-    100%{
-        transform: rotate3d(1,0,0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-360deg);
-
-    }
-}
-
-
-@keyframes last-top-spinner-2{
-    0%{
-        transform: rotate3d(0,-1,0, calc(var(--move-deg) )) rotateX(0deg) rotateY(-180deg);
-    }
-    
-    50%{
-        transform: rotate3d(0,-1,0, calc(var(--move-deg) )) rotateX(0deg) rotateY(-180deg);
-    }
-    
-    100%{
-        transform: rotate3d(0,-1,0, calc(var(--move-deg) )) rotateX(0deg) rotateY(-270deg);
-    }
-}
-
-@keyframes last-top-spinner-2{
-    0%{
-        transform: rotate3d(0,-1,0, calc(var(--move-deg) )) rotateX(0deg) rotateY(-180deg);
-    }
-    
-    50%{
-        transform: rotate3d(0,-1,0, calc(var(--move-deg) )) rotateX(0deg) rotateY(-180deg);
-    }
-    
-    100%{
-        transform: rotate3d(0,-1,0, calc(var(--move-deg) )) rotateX(0deg) rotateY(-270deg);
-    }
-}
-
-@keyframes last-top-spinner-3{
-    0%{
-        transform:rotate3d(1,0,0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-90deg);
-        /* transform: rotate3d(1,0,0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-90deg); */
-    }
-    
-    100%{
-        transform: rotate3d(1,0,0, calc(var(--move-deg) / 2)) rotateX(-90deg) rotateY(-180deg);
-    }
-}
-
-@keyframes last-top-spinner-4{
-    0%{
-        transform: rotate3d(-2,0,2, var(--move-deg)) rotateY(180deg);
-    }
-    
-    50%{
-        transform: rotate3d(-2,0,2, var(--move-deg)) rotateY(180deg);
-    }
-    
-    100%{
-        transform: rotate3d(-2,0,2, var(--move-deg)) rotateY(270deg);
-    }
-}
-
-
-
-
-
-
-
-
-@keyframes first-spin-side {
-    0%{
-        transform: rotateX(calc(var(--move-deg) * 0)) rotateY(calc(var(--move-deg) * 0));
-    }
-    
-    50%{
-        transform: rotateX(calc(var(--move-deg) * 0)) rotateY(calc(var(--move-deg) * 0));
-
-    }
-    
-    100%{
-        transform: rotateX(calc(var(--move-deg) * var(--first-spin))) rotateY(calc(var(--move-deg) * 0));
-    }
-}
-
-
-
-
-/*            */
-/* CUBE LOGIC */
-/*            */
-
-/* TOP PART */
-
-/* BLOCK TOP FRONT LEFT */
-span:nth-of-type(1) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * 0)) translateZ(calc(var(--object-size) * 1.5)) translateX(calc(var(--object-size) * 0)) rotateX(0);
-    
-}
-span:nth-of-type(1) span:nth-of-type(2){
-    transform:translateY(calc(var(--object-size) * 0)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * -.5)) rotateY(90deg);
-
-}
-span:nth-of-type(1) span:nth-of-type(3){
-    transform:translateY(calc(var(--object-size) * -.5)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * 0)) rotateX(90deg);
-}
-
-/* BLOCK TOP MIDDLE LEFT */
-span:nth-of-type(2) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * 0)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * -.5)) rotateY(90deg);
-}
-span:nth-of-type(2) span:nth-of-type(2){
-    transform:translateY(calc(var(--object-size) * -.5)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * 0)) rotateX(90deg);
-}
-
-/* BLOCK TOP BACK LEFT */
-span:nth-of-type(3) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * 0)) translateZ(calc(var(--object-size) * -1.5)) translateX(calc(var(--object-size) * 0)) rotateX(0);
-    
-}
-span:nth-of-type(3) span:nth-of-type(2){
-    transform:translateY(calc(var(--object-size) * 0)) translateZ(calc(var(--object-size) * -1)) translateX(calc(var(--object-size) * -.5)) rotateY(90deg);
-}
-span:nth-of-type(3) span:nth-of-type(3){
-    transform:translateY(calc(var(--object-size) * -.5)) translateZ(calc(var(--object-size) * -1)) translateX(calc(var(--object-size) * 0)) rotateX(90deg);
-}
-
-
-/* BLOCK TOP BACK BACK */
-span:nth-of-type(4) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * -.5)) translateZ(calc(var(--object-size) * -1)) translateX(calc(var(--object-size) * 1)) rotateX(90deg);
-
-}
-
-span:nth-of-type(4) span:nth-of-type(2){
-    transform:translateY(calc(var(--object-size) * 0)) translateZ(calc(var(--object-size) * -1.5)) translateX(calc(var(--object-size) * 1)) rotateX(0);
-}
-
-
-/* BLOCK TOP BACK RIGHT */
-span:nth-of-type(5) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * 0)) translateZ(calc(var(--object-size) * -1.5)) translateX(calc(var(--object-size) * 2)) rotateX(0);
-    
-}
-span:nth-of-type(5) span:nth-of-type(2){
-    transform:translateY(calc(var(--object-size) * 0)) translateZ(calc(var(--object-size) * -1)) translateX(calc(var(--object-size) * 2.5)) rotateY(90deg);
-}
-span:nth-of-type(5) span:nth-of-type(3){
-    transform:translateY(calc(var(--object-size) * -.5)) translateZ(calc(var(--object-size) * -1)) translateX(calc(var(--object-size) * 2)) rotateX(90deg);
-}
-
-/* BLOCK TOP MIDDLE RIGHT */
-span:nth-of-type(6) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * 0)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * 2.5)) rotateY(90deg);
-}
-span:nth-of-type(6) span:nth-of-type(2){
-    transform:translateY(calc(var(--object-size) * -.5)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * 2)) rotateX(90deg);
-}
-
-/* BLOCK TOP FRONT LEFT */
-span:nth-of-type(7) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * 0)) translateZ(calc(var(--object-size) * 1.5)) translateX(calc(var(--object-size) * 2)) rotateX(0);
-    
-}
-span:nth-of-type(7) span:nth-of-type(2){
-    transform:translateY(calc(var(--object-size) * 0)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * 2.5)) rotateY(90deg);
-
-}
-span:nth-of-type(7) span:nth-of-type(3){
-    transform:translateY(calc(var(--object-size) * -.5)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * 2)) rotateX(90deg);
-}
-
-/* BLOCK TOP BACK BACK */
-span:nth-of-type(8) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * -.5)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * 1)) rotateX(90deg);
-}
-
-span:nth-of-type(8) span:nth-of-type(2){
-    transform:translateY(calc(var(--object-size) * 0)) translateZ(calc(var(--object-size) * 1.5)) translateX(calc(var(--object-size) * 1)) rotateX(0);
-}
-
-
-/* BLOCK TOP MIDDLE MIDDLE */
-span:nth-of-type(9) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * -.5)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * 1)) rotateX(90deg);
-}
-
-
-/* MIDDLE PART */
-/* BLOCK MIDDLE FRONT LEFT */
-span:nth-of-type(10) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * 1.5)) translateX(calc(var(--object-size) * 0)) rotateX(0);
-}
-
-span:nth-of-type(10) span:nth-of-type(2){
-    transform:translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * -.5)) rotateY(90deg);
-}
-
-
-/* BLOCK MIDDLE MIDDLE LEFT */
-span:nth-of-type(11) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * -.5)) rotateY(90deg);
-}
-
-/* BLOCK MIDDLE BACK LEFT */
-span:nth-of-type(12) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * -1.5)) translateX(calc(var(--object-size) * 0)) rotateX(0);
-    
-}
-span:nth-of-type(12) span:nth-of-type(2){
-    transform:translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * -1)) translateX(calc(var(--object-size) * -.5)) rotateY(90deg);
-}
-
-
-/* BLOCK MIDDLE BACK BACK */
-span:nth-of-type(13) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * -1.5)) translateX(calc(var(--object-size) * 1)) rotateX(0);
-}
-
-
-/* BLOCK MIDDLE BACK RIGHT */
-span:nth-of-type(14) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * -1.5)) translateX(calc(var(--object-size) * 2)) rotateX(0);
-    
-}
-span:nth-of-type(14) span:nth-of-type(2){
-    transform:translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * -1)) translateX(calc(var(--object-size) * 2.5)) rotateY(90deg);
-}
-
-/* BLOCK MIDDLE MIDDLE RIGHT */
-span:nth-of-type(15) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * 2.5)) rotateY(90deg);
-}
-
-/* BLOCK MIDDLE FRONT LEFT */
-span:nth-of-type(16) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * 1.5)) translateX(calc(var(--object-size) * 2)) rotateX(0);  
-}
-
-span:nth-of-type(16) span:nth-of-type(2){
-    transform:translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * 2.5)) rotateY(90deg);
-
-}
-
-/* BLOCK MIDDLE BACK BACK */
-span:nth-of-type(17) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * 1.5)) translateX(calc(var(--object-size) * 1)) rotateX(0);
-}
-
-
-
-/*        */
-/* BOTTOM */
-/*        */
-
-
-/* BLOCK TOP FRONT LEFT */
-span:nth-of-type(18) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * 1.5)) translateX(calc(var(--object-size) * 0)) rotateX(0);
-    
-}
-span:nth-of-type(18) span:nth-of-type(2){
-    transform:translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * -.5)) rotateY(90deg);
-
-}
-span:nth-of-type(18) span:nth-of-type(3){
-    transform:translateY(calc(var(--object-size) * 2.5)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * 0)) rotateX(90deg);
-}
-
-/* BLOCK TOP MIDDLE LEFT */
-span:nth-of-type(19) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * -.5)) rotateY(90deg);
-}
-span:nth-of-type(19) span:nth-of-type(2){
-    transform:translateY(calc(var(--object-size) * 2.5)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * 0)) rotateX(90deg);
-}
-
-/* BLOCK TOP BACK LEFT */
-span:nth-of-type(20) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * -1.5)) translateX(calc(var(--object-size) * 0)) rotateX(0);
-    
-}
-span:nth-of-type(20) span:nth-of-type(2){
-    transform:translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * -1)) translateX(calc(var(--object-size) * -.5)) rotateY(90deg);
-}
-span:nth-of-type(20) span:nth-of-type(3){
-    transform:translateY(calc(var(--object-size) * 2.5)) translateZ(calc(var(--object-size) * -1)) translateX(calc(var(--object-size) * 0)) rotateX(90deg);
-}
-
-
-/* BLOCK TOP BACK BACK */
-span:nth-of-type(21) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * 2.5)) translateZ(calc(var(--object-size) * -1)) translateX(calc(var(--object-size) * 1)) rotateX(90deg);
-
-}
-
-span:nth-of-type(21) span:nth-of-type(2){
-    transform:translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * -1.5)) translateX(calc(var(--object-size) * 1)) rotateX(0);
-}
-
-
-/* BLOCK BOTTOM BACK RIGHT */
-span:nth-of-type(22) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * -1.5)) translateX(calc(var(--object-size) * 2)) rotateX(0);
-    
-}
-span:nth-of-type(22) span:nth-of-type(2){
-    transform:translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * -1)) translateX(calc(var(--object-size) * 2.5)) rotateY(90deg);
-}
-span:nth-of-type(22) span:nth-of-type(3){
-    transform:translateY(calc(var(--object-size) * 2.5)) translateZ(calc(var(--object-size) * -1)) translateX(calc(var(--object-size) * 2)) rotateX(90deg);
-}
-
-/* BLOCK TOP MIDDLE RIGHT */
-span:nth-of-type(23) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * 2.5)) rotateY(90deg);
-}
-span:nth-of-type(23) span:nth-of-type(2){
-    transform:translateY(calc(var(--object-size) * 2.5)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * 2)) rotateX(90deg);
-}
-
-/* BLOCK TOP FRONT LEFT */
-span:nth-of-type(24) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * 1.5)) translateX(calc(var(--object-size) * 2)) rotateX(0);
-    
-}
-span:nth-of-type(24) span:nth-of-type(2){
-    transform:translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * 2.5)) rotateY(90deg);
-
-}
-span:nth-of-type(24) span:nth-of-type(3){
-    transform:translateY(calc(var(--object-size) * 2.5)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * 2)) rotateX(90deg);
-}
-
-/* BLOCK TOP BACK BACK */
-span:nth-of-type(25) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * 2.5)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * 1)) rotateX(90deg);
-}
-
-span:nth-of-type(25) span:nth-of-type(2){
-    transform:translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * 1.5)) translateX(calc(var(--object-size) * 1)) rotateX(0);
-}
-
-
-/* BLOCK TOP MIDDLE MIDDLE */
-span:nth-of-type(26) span:nth-of-type(1){
-    transform:translateY(calc(var(--object-size) * 2.5)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * 1)) rotateX(90deg);
-}
-
-/* MESS UP THE CUBE :)
-
-article > span:nth-child(n+1):nth-child(-n+9) {
-transform: rotateX(calc(var(--move-deg) * .5)) rotateY(calc(var(--move-deg) * 1.3));
-}
-
-article > span:nth-child(n+20):nth-child(-n+24) {
-transform: rotateX(calc(var(--move-deg) * 2)) rotateY(calc(var(--move-deg) * 1.2));
-}
-
-article > span:nth-child(n+9):nth-child(-n+14) {
-
-transform: rotateX(calc(var(--move-deg) * 3)) rotateY(calc(var(--move-deg) * 1.5));
-}
-
-article > span:nth-child(n+18):nth-child(-n+20) {
-
-transform: rotateX(calc(var(--move-deg) * 3.4)) rotateY(calc(var(--move-deg) * 1.9));
-}
-
-
-article > span:nth-child(23):nth-child(23){
-    transform: rotateX(calc(var(--move-deg) * 1.4)) rotateY(calc(var(--move-deg) * .4));
-} */
-
-body > section:not(body section) {
-}
-
-section:has(input[name="end"]){
+section:has(input[name="end"]) {
     padding: var(--base-offset);
     position: absolute;
     left: 0;
     bottom: 0;
 }
 
-section:has(input[name="end"]:checked) + article > span {
-    transform: rotate3d(0, 0, 0, 0)!important;
+section:has(input[name="end"]:checked)+article>span {
+    transform: rotate3d(0, 0, 0, 0) !important;
     /* transition: 200ms all!important; */
     /* animation: none !important; */
 }
 
-input[name="end"]{
-    appearance: none;
-    background: #cc0000;
-    border-radius: 50%;
-    box-shadow:
-      inset 0 .25em .125em rgba(255,255,255,.3), 
-      inset 0 -.25em .125em rgba(0,0,0,.3);
-    display: block;
-    height: var(--object-size);
-    margin:auto;
-    padding: .55em;
-    position: relative;
-    width: var(--object-size);
-}
-
-
-input[name="end"]:after{
-    content:"";
-    display: block;
-    border-radius: 50%;
-    box-shadow: 0 0 .5em rgba(0,0,0,1), 
-        inset 0 .25em .3em rgba(255,255,255,.3), 
-        inset 0 -.25em .3em rgba(0,0,0,.5);
-    cursor: pointer;
-    height: 100%;
-    position: relative;
-    width: 100%;
-}
-
-input[name="end"]:checked:after{
-    box-shadow: 0 0 .5em rgba(0,0,0,1), 
-        inset 0 .1em .3em rgba(0,0,0,.5), 
-        inset 0 -.1em .3em rgba(0,0,0,.5);
-}
-
 /* Box puzzle */
 
-section:has(input[name="box-puzzle"]){
+section:has(input[name="box-puzzle"]) {
     position: absolute;
-    bottom: 0;    
+    bottom: 0;
     right: 0;
-    height: calc(calc(var(--object-size) * 3) + calc(var(--base-offset) * 4 ));
+    height: calc(calc(var(--object-size) * 3) + calc(var(--base-offset) * 4));
     width: calc(calc(var(--object-size) * 2) + calc(var(--base-offset) * 3));
     /* padding: var(--base-offset); */
 }
 
-fieldset:has(input[name="box-puzzle"]){
+fieldset:has(input[name="box-puzzle"]) {
     display: block;
     position: absolute;
-    bottom: 0;    
+    bottom: 0;
     right: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1148,9 +176,6 @@ fieldset:has(input[name="box-puzzle"]){
     padding: var(--base-offset);
 }
 
-fieldset:not([data-layer="1"]){
-    transform: translateX(100%);
-}
 /* 
 fieldset[data-layer="2"]{
 }
@@ -1167,126 +192,17 @@ fieldset[data-layer="4"]{
     
 } */
 
-section:has(input[name="box-puzzle"]) p{
-    text-align: center;
-    font-size: 1.3em;
-    opacity: 0;
-    transform: translateY(-100%);
-}
-
-
-
-
-
-
-section:has(fieldset[data-layer="1"]:valid) p{
-    animation: next 1s forwards ease;
-}
-
-section:has(fieldset[data-layer="1"]:valid) fieldset[data-layer="1"]{
-    animation: fadeOut 500ms forwards ease;
-    animation-delay: 750ms;
-}
-
-section:has(fieldset[data-layer="1"]:valid) fieldset[data-layer="2"]{
-    animation: fadeIn 1s forwards ease;
-    animation-delay: 500ms;
-}
-
-section:has(fieldset[data-layer="2"]:valid) p{
-    animation: next2 1s forwards ease;
-}
-
-section:has(fieldset[data-layer="2"]:valid) fieldset[data-layer="2"]{
-    transform: translateX(0);
-    animation: fadeOut 500ms forwards ease;
-    animation-delay: 500ms;
-}
-
-section:has(fieldset[data-layer="2"]:valid) fieldset[data-layer="3"]{
-    animation: fadeIn 1s forwards ease;
-    animation-delay: 750ms;
-}
-
-section:has(fieldset[data-layer="3"]:valid) p{
-    animation: next 1s forwards ease;
-}
-
-section:has(fieldset[data-layer="3"]:valid) fieldset[data-layer="3"]{
-    transform: translateX(0);
-    animation: fadeOut 500ms forwards ease;
-    animation-delay: 500ms;
-}
-
-section:has(fieldset[data-layer="3"]:valid) fieldset[data-layer="4"]{
-    animation: fadeIn 1s forwards ease;
-    animation-delay: 750ms;
-}
-
-section:has(fieldset[data-layer="4"]:valid) p{
-    animation: next2 1s forwards ease;
-}
-
-section:has(fieldset[data-layer="4"]:valid) fieldset[data-layer="4"]{
-    transform: translateX(0);
-    animation: fadeOut 500ms forwards ease;
-    animation-delay: 500ms;
-}
-
-section:has(fieldset[data-layer="4"]:valid) fieldset[data-layer="5"]{
-    animation: fadeIn 1s forwards ease;
-    animation-delay: 750ms;
-}
-
-
-section:has(fieldset[data-layer="5"]:valid) p{
-    animation: next 1s forwards ease;
-}
-
-section:has(fieldset[data-layer="5"]:valid) fieldset[data-layer="5"]{
-    transform: translateX(0);
-    animation: fadeOut 500ms forwards ease;
-    animation-delay: 500ms;
-}
-
-section:has(fieldset[data-layer="5"]:valid) fieldset[data-layer="6"]{
-    animation: fadeIn 1s forwards ease;
-    animation-delay: 750ms;
-}
-
-section:has(fieldset[data-layer="6"]:valid) p{
-    animation: next2 1s forwards ease;
-}
-
-section:has(fieldset[data-layer="6"]:valid) fieldset[data-layer="6"]{
-    transform: translateX(0);
-    animation: fadeOut 500ms forwards ease;
-    animation-delay: 500ms;
-}
-
-section:has(fieldset[data-layer="6"]:valid) fieldset[data-layer="7"]{
-    animation: fadeIn 1s forwards ease;
-    animation-delay: 750ms;
-}
-
-
 /* SPIN CUBE */
-section:has(section:has(fieldset[data-layer="2"]:valid)) + section + article > span:nth-child(5):nth-child(5){
+section:has(section:has(fieldset[data-layer="2"]:valid))+section+article>span:nth-child(5):nth-child(5) {
     /* transform: rotateX(calc(var(--move-deg) * 2.5)) rotateY(calc(var(--move-deg) * 1)); */
 }
 
-section:has(section:has(fieldset[data-layer="2"]:valid)) + section + article > span:nth-child(n + 12):nth-child(-n + 14){
+section:has(section:has(fieldset[data-layer="2"]:valid))+section+article>span:nth-child(n + 12):nth-child(-n + 14) {
     /* transform: rotateX(calc(var(--move-deg) * 0)) rotateY(calc(var(--move-deg) * 2)); */
 }
 
-
-
-
-
-
-
 @keyframes fadeOut {
-    0%{
+    0% {
         transform: translateX(0);
         transform: translateY(0);
     }
@@ -1298,7 +214,7 @@ section:has(section:has(fieldset[data-layer="2"]:valid)) + section + article > s
 }
 
 @keyframes fadeIn {
-    0%{
+    0% {
         opacity: 0;
         transform: translateX(100%);
     }
@@ -1315,7 +231,7 @@ section:has(section:has(fieldset[data-layer="2"]:valid)) + section + article > s
         transform: translateY(-100%);
     }
 
-    20%{
+    20% {
         opacity: 1;
         transform: translateY(-200%);
         font-size: 2em;
@@ -1333,7 +249,7 @@ section:has(section:has(fieldset[data-layer="2"]:valid)) + section + article > s
         transform: translateY(-100%);
     }
 
-    20%{
+    20% {
         opacity: 1;
         transform: translateY(-200%);
         font-size: 2em;
@@ -1344,31 +260,6 @@ section:has(section:has(fieldset[data-layer="2"]:valid)) + section + article > s
         transform: translateY(0);
     }
 }
-
-input[name="box-puzzle"]{
-    height: calc(var(--object-size) );
-    width: calc(var(--object-size) );
-    appearance: none;
-    background-color: #444;
-    border: none;
-}
-
-input[name="box-puzzle"]:after{
-    content: attr(data-type);
-}
-
-input[name="box-puzzle"]:active{
-    background-color: #333;
-}
-
-input[name="box-puzzle"]:checked{
-    background-color: #333;
-}
-
-
-
-
-
 
 
 /*
@@ -1470,85 +361,3 @@ input[data-puzzle="box-game"]:nth-of-type(4) {
     left: -55%;
     height: 100px;
 } */
-
-
-/* SLIDER */ 
-
-/* EVENT LISTENERS VERTICAL SLIDER  */
-/* head[data-vertical-x^="0"] + body{ */
-    /* background: yellow!important; */
-    /* /* --h:-90deg;  */
-/* } */
-
-head[data-vertical-x^="0"] + body{
-    --h:-180deg; 
-}
-
-head[data-vertical-value^="1"]:not([data-vertical-value="1"]) + body{
-    --h:-144deg; 
-}
-head[data-vertical-value^="2"]:not([data-vertical-value="2"]) + body{
-    --h:-108deg; 
-}
-head[data-vertical-value^="3"]:not([data-vertical-value="3"]) + body{
-    --h:-72deg; 
-}
-head[data-vertical-value^="4"]:not([data-vertical-value="4"]) + body{
-    --h:-36deg; 
-}
-head[data-vertical-value^="5"]:not([data-vertical-value="5"]) + body{
-    --h:0deg; 
-}
-head[data-vertical-value^="6"]:not([data-vertical-value="6"]) + body{
-    --h:36deg; 
-}
-head[data-vertical-value^="7"]:not([data-vertical-value="7"]) + body{
-    --h:72deg; 
-}
-head[data-vertical-value^="8"]:not([data-vertical-value="8"]) + body{
-    --h:108deg; 
-}
-head[data-vertical-value^="9"]:not([data-vertical-value="9"]) + body{
-    --h:144deg; 
-}
-head[data-vertical-value^="10"]:not([data-vertical-value="10"]) + body{
-    --h:180deg; 
-}
-
-
-
-
-/* EVENT LISTENERS HORIZONTAL SLIDER */
-head[data-horizontal-x^="0"] + body{
-    --deg:calc(36deg * -5); 
-}
-head[data-horizontal-value^="1"]:not([data-horizontal-value="1"]) + body{
-    --deg:calc(36deg * -4); 
-}
-head[data-horizontal-value^="2"]:not([data-horizontal-value="2"]) + body{
-    --deg:calc(36deg * -3); 
-}
-head[data-horizontal-value^="3"]:not([data-horizontal-value="3"]) + body{
-    --deg:calc(36deg * -2); 
-}
-head[data-horizontal-value^="4"]:not([data-horizontal-value="4"]) + body{
-    --deg:calc(36deg * -1); 
-}
-head[data-horizontal-value^="5"]:not([data-horizontal-value="5"]) + body{
-    --deg:calc(36deg * 0); 
-}
-head[data-horizontal-value^="6"]:not([data-horizontal-value="6"]) + body{
-    --deg:calc(36deg * 1); 
-}
-head[data-horizontal-value^="7"]:not([data-horizontal-value="7"]) + body{
-    --deg:calc(36deg * 2); 
-}
-head[data-horizontal-value^="8"]:not([data-horizontal-value="8"]) + body{
-    --deg:calc(36deg * 3); 
-}
-head[data-horizontal-value^="9"]:not([data-horizontal-value="9"]) + body{
-    --deg:calc(36deg * 4); 
-}
-head[data-horizontal-value^="10"]:not([data-horizontal-value="10"]) + body{
-    --deg:calc(36deg * 5); 
-}

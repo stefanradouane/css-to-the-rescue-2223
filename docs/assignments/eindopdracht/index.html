@@ -1,80 +1,93 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eindopdracht - Stefan Radouane</title>
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
+
 <body>
-    <header>
-        <h1>Cube Trainer</h1>
-        <h2>Door Stefan Radouane</h2>
-        <h3>Gemaakt voor CCS to the Rescue - 2023</h3>
-        <p>Level</p>
-    </header>
+    <form>
+        <button type="reset">Back to menu</button>
+        <header>
+            <h1>Cube Trainer</h1>
+            <h2>Door Stefan Radouane</h2>
+            <h3>Gemaakt voor CCS to the Rescue - 2023</h3>
+            <p>Level</p>
+        </header>
 
-    <section>
-        <p>Correct!</p>
-        <fieldset data-layer="1">
-            <input type="checkbox" name="box-puzzle" data-layer="1" data-type="Blue Front">
-            <input type="checkbox" name="box-puzzle" data-layer="1" data-type="Orange Front">
-            <input type="checkbox" name="box-puzzle" data-layer="1" data-type="Green Front" required>
-            <input type="checkbox" name="box-puzzle" data-layer="1" data-type="Red Front">
-            <input type="checkbox" name="box-puzzle" data-layer="1" data-type="Top Left">
-            <input type="checkbox" name="box-puzzle" data-layer="1" data-type="Top Right">
-        </fieldset>
-        <fieldset data-layer="2">
-            <input type="checkbox" name="box-puzzle" data-layer="2" data-type="Top Left" required>
-            <input type="checkbox" name="box-puzzle" data-layer="2" data-type="Top Right">
-            <input type="checkbox" name="box-puzzle" data-layer="2" data-type="Middle Left">
-            <input type="checkbox" name="box-puzzle" data-layer="2" data-type="Middle Right">
-            <input type="checkbox" name="box-puzzle" data-layer="2" data-type="Bottom Lef">
-            <input type="checkbox" name="box-puzzle" data-layer="2" data-type="Bottom Right">
-        </fieldset>        
-        <fieldset data-layer="3">
-            <input type="checkbox" name="box-puzzle" data-layer="3" data-type="Left Up">
-            <input type="checkbox" name="box-puzzle" data-layer="3" data-type="Left Down">
-            <input type="checkbox" name="box-puzzle" data-layer="3" data-type="Middle Up" required>
-            <input type="checkbox" name="box-puzzle" data-layer="3" data-type="Middle Down">
-            <input type="checkbox" name="box-puzzle" data-layer="3" data-type="Right Up">
-            <input type="checkbox" name="box-puzzle" data-layer="3" data-type="Right Down">
-        </fieldset>        
-        <fieldset data-layer="4">
-            <input type="checkbox" name="box-puzzle" data-layer="4" data-type="Top Row" required>
-            <input type="checkbox" name="box-puzzle" data-layer="4" data-type="Middle Row">
-            <input type="checkbox" name="box-puzzle" data-layer="4" data-type="Bottom Row">
-            <input type="checkbox" name="box-puzzle" data-layer="4" data-type="Left Up">
-            <input type="checkbox" name="box-puzzle" data-layer="4" data-type="Middle Up">
-            <input type="checkbox" name="box-puzzle" data-layer="4" data-type="Right Up">
-        </fieldset>        
-        <fieldset data-layer="5">
-            <input type="checkbox" name="box-puzzle" data-layer="5" data-type="Top Up">
-            <input type="checkbox" name="box-puzzle" data-layer="5" data-type="Top Down">
-            <input type="checkbox" name="box-puzzle" data-layer="5" data-type="Middle Up">
-            <input type="checkbox" name="box-puzzle" data-layer="5" data-type="Middle Down" required>
-            <input type="checkbox" name="box-puzzle" data-layer="5" data-type="Right Up">
-            <input type="checkbox" name="box-puzzle" data-layer="5" data-type="Right Down">
-        </fieldset>        
+        <section data-level-layers="7">
+            <p>Correct!</p>
+            <fieldset data-layer="1">
+                <input type="checkbox" name="box-puzzle" data-layer="1" data-type="Blue Front">
+                <input type="checkbox" name="box-puzzle" data-layer="1" data-type="Orange Front">
+                <input type="checkbox" name="box-puzzle" data-layer="1" data-type="Green Front" required>
+                <input type="checkbox" name="box-puzzle" data-layer="1" data-type="Red Front">
+                <input type="checkbox" name="box-puzzle" data-layer="1" data-type="Top Left">
+                <input type="checkbox" name="box-puzzle" data-layer="1" data-type="Top Right">
+            </fieldset>
+            <fieldset data-layer="2">
+                <input type="checkbox" name="box-puzzle" data-layer="2" data-type="Top Left" required>
+                <input type="checkbox" name="box-puzzle" data-layer="2" data-type="Top Right">
+                <input type="checkbox" name="box-puzzle" data-layer="2" data-type="Middle Left">
+                <input type="checkbox" name="box-puzzle" data-layer="2" data-type="Middle Right">
+                <input type="checkbox" name="box-puzzle" data-layer="2" data-type="Bottom Lef">
+                <input type="checkbox" name="box-puzzle" data-layer="2" data-type="Bottom Right">
+            </fieldset>
+            <fieldset data-layer="3">
+                <input type="checkbox" name="box-puzzle" data-layer="3" data-type="Left Up">
+                <input type="checkbox" name="box-puzzle" data-layer="3" data-type="Left Down">
+                <input type="checkbox" name="box-puzzle" data-layer="3" data-type="Middle Up" required>
+                <input type="checkbox" name="box-puzzle" data-layer="3" data-type="Middle Down">
+                <input type="checkbox" name="box-puzzle" data-layer="3" data-type="Right Up">
+                <input type="checkbox" name="box-puzzle" data-layer="3" data-type="Right Down">
+            </fieldset>
+            <fieldset data-layer="4">
+                <input type="checkbox" name="box-puzzle" data-layer="4" data-type="Top Row" required>
+                <input type="checkbox" name="box-puzzle" data-layer="4" data-type="Middle Row">
+                <input type="checkbox" name="box-puzzle" data-layer="4" data-type="Bottom Row">
+                <input type="checkbox" name="box-puzzle" data-layer="4" data-type="Left Up">
+                <input type="checkbox" name="box-puzzle" data-layer="4" data-type="Middle Up">
+                <input type="checkbox" name="box-puzzle" data-layer="4" data-type="Right Up">
+            </fieldset>
+            <fieldset data-layer="5">
+                <input type="checkbox" name="box-puzzle" data-layer="5" data-type="Top Up">
+                <input type="checkbox" name="box-puzzle" data-layer="5" data-type="Top Down">
+                <input type="checkbox" name="box-puzzle" data-layer="5" data-type="Middle Up">
+                <input type="checkbox" name="box-puzzle" data-layer="5" data-type="Middle Down" required>
+                <input type="checkbox" name="box-puzzle" data-layer="5" data-type="Right Up">
+                <input type="checkbox" name="box-puzzle" data-layer="5" data-type="Right Down">
+            </fieldset>
 
-        <fieldset data-layer="6">
-            <input type="checkbox" name="box-puzzle" data-layer="6" data-type="Top Left" required>
-            <input type="checkbox" name="box-puzzle" data-layer="6" data-type="Top Right">
-            <input type="checkbox" name="box-puzzle" data-layer="6" data-type="Middle Left">
-            <input type="checkbox" name="box-puzzle" data-layer="6" data-type="Middle Right">
-            <input type="checkbox" name="box-puzzle" data-layer="6" data-type="Bottom Left">
-            <input type="checkbox" name="box-puzzle" data-layer="6" data-type="Bottom Right">
-        </fieldset>        
 
-        <fieldset data-layer="7">
-            <input type="checkbox" name="box-puzzle" data-layer="7" data-type="X" required>
-            <input type="checkbox" name="box-puzzle" data-layer="7" data-type="X">
-            <input type="checkbox" name="box-puzzle" data-layer="7" data-type="X">
-            <input type="checkbox" name="box-puzzle" data-layer="7" data-type="X">
-            <input type="checkbox" name="box-puzzle" data-layer="7" data-type="X">
-            <input type="checkbox" name="box-puzzle" data-layer="7" data-type="X">
-        </fieldset>        
-        <!-- <fieldset data-layer="5">
+            <fieldset data-layer="6">
+                <input type="checkbox" name="box-puzzle" data-layer="6" data-type="Top Left" required>
+                <input type="checkbox" name="box-puzzle" data-layer="6" data-type="Top Right">
+                <input type="checkbox" name="box-puzzle" data-layer="6" data-type="Middle Left">
+                <input type="checkbox" name="box-puzzle" data-layer="6" data-type="Middle Right">
+                <input type="checkbox" name="box-puzzle" data-layer="6" data-type="Bottom Left">
+                <input type="checkbox" name="box-puzzle" data-layer="6" data-type="Bottom Right">
+            </fieldset>
+
+            <fieldset data-layer="7">
+                <input type="checkbox" name="box-puzzle" data-layer="7" data-type="Front Yellow">
+                <input type="checkbox" name="box-puzzle" data-layer="7" data-type="Front Red">
+                <input type="checkbox" name="box-puzzle" data-layer="7" data-type="Front Blue">
+                <input type="checkbox" name="box-puzzle" data-layer="7" data-type="Front White">
+                <input type="checkbox" name="box-puzzle" data-layer="7" data-type="Front Orange">
+                <input type="checkbox" name="box-puzzle" data-layer="7" data-type="Front Green" required>
+            </fieldset>
+
+
+            <section data-layer="finish">
+                <h2>Well done!</h2>
+                <h3>You solved the cube</h3>
+            </section>
+            <!-- <fieldset data-layer="5">
             <input type="checkbox" name="box-puzzle">
             <input type="checkbox" name="box-puzzle">
             <input type="checkbox" name="box-puzzle">
@@ -84,12 +97,12 @@
         </fieldset>         -->
 
 
-    </section>
+        </section>
 
-    <section>
-        <p>Don't press me</p>
-        <input type="checkbox" name="end">
-    </section>
+        <section>
+            <p>Don't press me</p>
+            <input type="checkbox" name="end">
+        </section>
 
 
         <article>
@@ -102,7 +115,7 @@
 
             <!-- Top Middle Left -->
             <span>
-                <span data-color="orange"></span>
+                <span data-color="red" data-last="orange"></span>
                 <span data-color="yellow"></span>
             </span>
 
@@ -128,7 +141,7 @@
 
             <!-- Top Middle Right -->
             <span>
-                <span data-color="green"></span>
+                <span data-color="orange" data-last="green"></span>
                 <span data-color="yellow"></span>
             </span>
 
@@ -142,11 +155,11 @@
             <!-- Top Front Front -->
             <span>
                 <span data-color="yellow"></span>
-                <span data-color="red"></span>
+                <span data-color="green" data-last="red"></span>
             </span>
 
-             <!-- Top Middle Middle -->
-             <span>
+            <!-- Top Middle Middle -->
+            <span>
                 <span data-color="yellow"></span>
             </span>
 
@@ -196,8 +209,8 @@
                 <span data-color="green"></span>
             </span>
 
-             <!-- Bottom Front Left -->
-             <span>
+            <!-- Bottom Front Left -->
+            <span>
                 <span data-color="green"></span>
                 <span data-color="red"></span>
                 <span data-color="white"></span>
@@ -248,30 +261,69 @@
                 <span data-color="green"></span>
             </span>
 
-             <!-- Bottom Middle Middle -->
-             <span>
+            <!-- Bottom Middle Middle -->
+            <span>
                 <span data-color="white"></span>
             </span>
-
-
-
-
-
-
-
         </article>
-    <!-- </section> -->
-    <input type="range" id="vertical" value="49" max="100" aria-orientation="vertical">
-    <input type="range" id="horizontal" value="49" max="100">
+        <!-- </section> -->
+        <input type="range" id="vertical" value="49" max="100" aria-orientation="vertical">
+        <input type="range" id="horizontal" value="49" max="100">
 
-    <dialog>
-        <h2>Cube Trainer</h2>
-        <p>Select the level that you want to play</p>
-        <p>You are now going to solve the last step of the rubiks cube.</p>
-        <p>Good Luck!</p>
-        <input type="checkbox">
-    </dialog>
+        <dialog>
+            <h1>Welcome to Cube Trainer</h1>
+            <p>So you want to learn how to cube right</p>
+            <p>Select the step that you want to solve!</p>
+            <!-- <p>You are now going to solve the last step of the rubiks cube.</p> -->
+            <p>Good Luck!</p>
+            <section>
+                <section>
+                    <h3>Step 1</h3>
+                    <p>Make a white cross (top)</p>
+                    <input type="checkbox" disabled>
+                </section>
+                <section>
+                    <h3>Step 2</h3>
+                    <p>Complete the white side (bottom)</p>
+                    <input type="checkbox" disabled>
+                </section>
+                <section>
+                    <h3>Step 3</h3>
+                    <p>Complete the second row</p>
+                    <input type="checkbox" disabled>
+                </section>
+                <section>
+                    <h3>Step 4</h3>
+                    <p>Yellow cross (top)</p>
+                    <input type="checkbox" disabled>
+                </section>
+                <section>
+                    <h3>Step 5</h3>
+                    <p>Complete the yellow side (top)</p>
+                    <input type="checkbox" disabled>
+                </section>
+                <section>
+                    <h3>Step 6</h3>
+                    <p>Set the corners on the correct place</p>
+                    <input type="checkbox" disabled>
+                </section>
+                <section>
+                    <h3>Step 7</h3>
+                    <p>Complete the cube</p>
+                    <input type="checkbox" value="7" data-level="7">
+                </section>
+                <section>
+                    <h3>Look at a solved cube</h3>
+                    <p>Why not?</p>
+                    <input type="checkbox" data-level="spectator">
+                </section>
+            </section>
+            <!-- <input type="checkbox"> REMOVE CHECKED -->
+        </dialog>
+    </form>
+
     <!-- <input type="checkbox" name="levelup" style="position: absolute; left: 0;"> -->
     <script src="../consoles/slider/slider.js"></script>
 </body>
+
 </html>

@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1>The Impossible Cube</h1>
+        <h1>Cube Trainer</h1>
         <h2>Door Stefan Radouane</h2>
         <h3>Gemaakt voor CCS to the Rescue - 2023</h3>
         <p>Level</p>
@@ -16,40 +16,73 @@
 
     <section>
         <p>Correct!</p>
+        <fieldset data-layer="1">
+            <input type="checkbox" name="box-puzzle" data-layer="1" data-type="Blue Front">
+            <input type="checkbox" name="box-puzzle" data-layer="1" data-type="Orange Front">
+            <input type="checkbox" name="box-puzzle" data-layer="1" data-type="Green Front" required>
+            <input type="checkbox" name="box-puzzle" data-layer="1" data-type="Red Front">
+            <input type="checkbox" name="box-puzzle" data-layer="1" data-type="Top Left">
+            <input type="checkbox" name="box-puzzle" data-layer="1" data-type="Top Right">
+        </fieldset>
+        <fieldset data-layer="2">
+            <input type="checkbox" name="box-puzzle" data-layer="2" data-type="Top Left" required>
+            <input type="checkbox" name="box-puzzle" data-layer="2" data-type="Top Right">
+            <input type="checkbox" name="box-puzzle" data-layer="2" data-type="Middle Left">
+            <input type="checkbox" name="box-puzzle" data-layer="2" data-type="Middle Right">
+            <input type="checkbox" name="box-puzzle" data-layer="2" data-type="Bottom Lef">
+            <input type="checkbox" name="box-puzzle" data-layer="2" data-type="Bottom Right">
+        </fieldset>        
+        <fieldset data-layer="3">
+            <input type="checkbox" name="box-puzzle" data-layer="3" data-type="Left Up">
+            <input type="checkbox" name="box-puzzle" data-layer="3" data-type="Left Down">
+            <input type="checkbox" name="box-puzzle" data-layer="3" data-type="Middle Up" required>
+            <input type="checkbox" name="box-puzzle" data-layer="3" data-type="Middle Down">
+            <input type="checkbox" name="box-puzzle" data-layer="3" data-type="Right Up">
+            <input type="checkbox" name="box-puzzle" data-layer="3" data-type="Right Down">
+        </fieldset>        
+        <fieldset data-layer="4">
+            <input type="checkbox" name="box-puzzle" data-layer="4" data-type="Top Row" required>
+            <input type="checkbox" name="box-puzzle" data-layer="4" data-type="Middle Row">
+            <input type="checkbox" name="box-puzzle" data-layer="4" data-type="Bottom Row">
+            <input type="checkbox" name="box-puzzle" data-layer="4" data-type="Left Up">
+            <input type="checkbox" name="box-puzzle" data-layer="4" data-type="Middle Up">
+            <input type="checkbox" name="box-puzzle" data-layer="4" data-type="Right Up">
+        </fieldset>        
+        <fieldset data-layer="5">
+            <input type="checkbox" name="box-puzzle" data-layer="5" data-type="Top Up">
+            <input type="checkbox" name="box-puzzle" data-layer="5" data-type="Top Down">
+            <input type="checkbox" name="box-puzzle" data-layer="5" data-type="Middle Up">
+            <input type="checkbox" name="box-puzzle" data-layer="5" data-type="Middle Down" required>
+            <input type="checkbox" name="box-puzzle" data-layer="5" data-type="Right Up">
+            <input type="checkbox" name="box-puzzle" data-layer="5" data-type="Right Down">
+        </fieldset>        
 
-        <section data-layer="1">
-            <input type="checkbox" name="box-puzzle" data-layer="1">
-            <input type="checkbox" name="box-puzzle" data-layer="1">
-            <input type="checkbox" name="box-puzzle" data-layer="1">
-            <input type="checkbox" name="box-puzzle" data-layer="1">
-            <input type="checkbox" name="box-puzzle" data-layer="1">
-            <input type="checkbox" name="box-puzzle" data-layer="1">
-        </section>    
+        <fieldset data-layer="6">
+            <input type="checkbox" name="box-puzzle" data-layer="6" data-type="Top Left" required>
+            <input type="checkbox" name="box-puzzle" data-layer="6" data-type="Top Right">
+            <input type="checkbox" name="box-puzzle" data-layer="6" data-type="Middle Left">
+            <input type="checkbox" name="box-puzzle" data-layer="6" data-type="Middle Right">
+            <input type="checkbox" name="box-puzzle" data-layer="6" data-type="Bottom Left">
+            <input type="checkbox" name="box-puzzle" data-layer="6" data-type="Bottom Right">
+        </fieldset>        
 
-        <section data-layer="2" aria-current="2">
-            <input type="checkbox" name="box-puzzle">
-            <input type="checkbox" name="box-puzzle">
-            <input type="radio" name="box-puzzle">
-            <input type="checkbox" name="box-puzzle">
-            <input type="radio" name="box-puzzle">
-            <input type="radio" name="box-puzzle">
-        </section>        
-        <section data-layer="3">
-            <input type="checkbox" name="box-puzzle">
-            <input type="checkbox" name="box-puzzle">
-            <input type="checkbox" name="box-puzzle">
-            <input type="checkbox" name="box-puzzle">
-            <input type="checkbox" name="box-puzzle">
-            <input type="checkbox" name="box-puzzle">
-        </section>        
-        <section data-layer="4">
+        <fieldset data-layer="7">
+            <input type="checkbox" name="box-puzzle" data-layer="7" data-type="X" required>
+            <input type="checkbox" name="box-puzzle" data-layer="7" data-type="X">
+            <input type="checkbox" name="box-puzzle" data-layer="7" data-type="X">
+            <input type="checkbox" name="box-puzzle" data-layer="7" data-type="X">
+            <input type="checkbox" name="box-puzzle" data-layer="7" data-type="X">
+            <input type="checkbox" name="box-puzzle" data-layer="7" data-type="X">
+        </fieldset>        
+        <!-- <fieldset data-layer="5">
             <input type="checkbox" name="box-puzzle">
             <input type="checkbox" name="box-puzzle">
             <input type="checkbox" name="box-puzzle">
             <input type="checkbox" name="box-puzzle">
             <input type="checkbox" name="box-puzzle">
             <input type="checkbox" name="box-puzzle">
-        </section> 
+        </fieldset>         -->
+
 
     </section>
 
@@ -69,7 +102,7 @@
 
             <!-- Top Middle Left -->
             <span>
-                <span data-color="red"></span>
+                <span data-color="orange"></span>
                 <span data-color="yellow"></span>
             </span>
 
@@ -95,7 +128,7 @@
 
             <!-- Top Middle Right -->
             <span>
-                <span data-color="orange"></span>
+                <span data-color="green"></span>
                 <span data-color="yellow"></span>
             </span>
 
@@ -109,7 +142,7 @@
             <!-- Top Front Front -->
             <span>
                 <span data-color="yellow"></span>
-                <span data-color="green"></span>
+                <span data-color="red"></span>
             </span>
 
              <!-- Top Middle Middle -->
@@ -228,16 +261,17 @@
 
         </article>
     <!-- </section> -->
-    <!-- <input type="range" id="vertical" step="10" value="50" max="100" aria-orientation="vertical"> -->
-    <!-- <input type="range" id="horizontal" value="50" max="100"> -->
+    <input type="range" id="vertical" value="49" max="100" aria-orientation="vertical">
+    <input type="range" id="horizontal" value="49" max="100">
 
     <dialog>
-        <h2>Goal:</h2>
-        <p>This cube is impossible... Not to solve, but in reality.</p>
-        <p>Solve the cube with the tools you got.</p>
+        <h2>Cube Trainer</h2>
+        <p>Select the level that you want to play</p>
+        <p>You are now going to solve the last step of the rubiks cube.</p>
         <p>Good Luck!</p>
+        <input type="checkbox">
     </dialog>
-    <input type="checkbox" name="levelup" style="position: absolute; left: 0;">
+    <!-- <input type="checkbox" name="levelup" style="position: absolute; left: 0;"> -->
     <script src="../consoles/slider/slider.js"></script>
 </body>
 </html>

@@ -1,29 +1,5 @@
-/* @import "./box-puzzle/all.css"; */
-/* @import "./cube/all.css"; */
-/* @import "./home/home.css"; */
-@import "./input.css";
-@import "./impossible.css";
-/* @import "./fieldset.css"; */
-/* @import "./levels/all.css"; */
-
 @import 'lib/all.css';
 @import 'modules/all.css';
-
-
-
-:root:has(input[name="end"]:checked) {
-    --current-level: "loser";
-}
-
-:root:has(fieldset[data-layer="1"]:valid) {
-    --current-level: "2";
-}
-
-:root:has(fieldset[data-layer="2"]:valid) {
-    --current-level: "3";
-}
-
-
 
 body {
     height: 100vh;
@@ -114,14 +90,14 @@ section:has(input[name="box-puzzle"]) {
     /* padding: var(--base-offset); */
 }
 
-fieldset:has(input[name="box-puzzle"]) {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--base-offset);
-    border: none;
-    padding: var(--base-offset);
+
+/* Input idk waar */
+input,
+button {
+    cursor: pointer;
+}
+
+input:disabled,
+button:disabled {
+    cursor: not-allowed;
 }

@@ -1,0 +1,53 @@
+/* Button resets the hidden form (complete page) */
+/* If the form is empty the menu is shown */
+
+/* Default styling */
+button[type="reset"] {
+    isolation: isolate;
+    appearance: none;
+    border: none;
+    position: absolute;
+    display: none; 
+    top: var(--base-offset);
+    right: var(--base-offset);
+    padding: calc(var(--base-offset) / 2) var(--base-offset);
+    background-color: var(--control-color);
+    z-index: 1;
+    font-size: 1em;
+    transition: var(--transition-timing) all;
+}
+
+/* Hover state */
+button[type="reset"]:hover{ background-color: var(--control-color--hover); }
+/* Active state */
+button[type="reset"]:active{ background-color: var(--control-color--active); }
+
+/* If a control is checked on the menu the button is shown */
+body:has(dialog input:checked) button[type="reset"] {
+    display: block;
+}
+
+/* Default styling :after */
+button[type="reset"]::after {
+    content: "On click your progress of this level will be lost";
+    position: absolute;
+    opacity: 0;
+    top: 100%;
+    right: 0;
+    padding: .55em;
+    background-color: inherit;
+    transition: var(--transition-timing) all, 0ms background-color;
+    transform: scaleY(0);
+    transform-origin: top;
+}
+
+/* If the current level is spectator, don't show the after */
+body:has(dialog input[data-level*="spectator"]:checked) button[type="reset"]:after {
+    display: none;
+}
+
+/* Styling when button is hovered */
+button[type="reset"]:hover::after {
+    opacity: 1;
+    transform: scaleY(100%);
+}

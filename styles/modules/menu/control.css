@@ -1,0 +1,56 @@
+/* Default control styling */
+dialog input {
+    appearance: none;
+    display: flex;
+    position: relative;
+    margin-top: auto;
+    padding: calc(var(--base-offset) / 2) calc(var(--base-offset) / 1.25);
+    background-color: var(--control-color);
+    font-size: var(--font-size--xsmall);
+    transition: var(--transition-timing) all;
+}
+
+/* Hover state */
+dialog input:hover { background-color: var(--control-color--hover); }
+/* Active state */
+dialog input:active { background-color: var(--control-color--active); }
+
+/* Default before styling */
+dialog input::before {
+    margin: auto;
+}
+
+/* Before of not the spectator levels */
+dialog input:not([data-level*="spectator"])::before {
+    content: "Start Solving - 🧊";
+}
+
+/* Default styling of a disabled button */
+dialog input[disabled] {
+    background-color: #111;
+}
+
+/* Before of not the disabled levels */
+dialog input[disabled]::before {
+    content: "🔒";
+}
+
+/* Hover disabled */
+dialog input[disabled]:hover::before {
+    content: "Locked - 🔒";
+}
+
+/* If level-option is for a spectator level. */
+dialog input[data-level*="spectator"] {
+    background-color: #333;
+}
+
+/* Before of spectator levels */
+input[data-level*="spectator"]::before {
+    content: "Spectate - 🔓";
+}
+
+/* Hover spectator */
+dialog input[data-level*="spectator"]:hover::before {
+    content: "Click to - 👀";
+}

@@ -1,8 +1,14 @@
-/* Default */
-/* Make the section and fieldsets appear an disappear. */
-section[data-layer="finish"],
-fieldset:not([data-layer="1"]) {
-    transform: translateX(100%);
+/* Default styling of the fieldset */
+fieldset:has(input[name="box-puzzle"]) {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--font-size--small);
+    border: none;
+    padding: var(--base-offset);
 }
 
 /* Styling of the finished section */
@@ -15,6 +21,12 @@ section[data-layer="finish"]{
     padding: var(--base-offset);
     bottom: 0;
     position: absolute;
+}
+
+/* Make the section and fieldsets appear an disappear. */
+section[data-layer="finish"],
+fieldset:not([data-layer="1"]) {
+    transform: translateX(100%);
 }
 
 section[data-layer="finish"] img{

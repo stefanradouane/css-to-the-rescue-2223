@@ -14,13 +14,11 @@
     <form>
         <button type="reset">Back to menu</button>
         <header>
-            <h1>Cube Trainer</h1>
-            <h2>Door Stefan Radouane</h2>
-            <h3>Gemaakt voor CCS to the Rescue - 2023</h3>
-            <p>Level</p>
+            <h1>Level</h1>
+            <p>Step</p>
         </header>
 
-        <h1 data-effect="special">Danger the cube overheat<span></span></h1>
+        <h1 style="color:transparent;" data-effect="special">Danger the cube overheat<span></span></h1>
 
         <section data-level-layers="7">
             <p>Correct!</p>
@@ -90,20 +88,9 @@
                 <h3>You solved the cube</h3>
                 <img src="https://api.memegen.link/images/rollsafe/Me_after_completing_the_cube.gif" alt="funny cube meme">
             </section>
-            <!-- <fieldset data-layer="5">
-            <input type="checkbox" name="box-puzzle">
-            <input type="checkbox" name="box-puzzle">
-            <input type="checkbox" name="box-puzzle">
-            <input type="checkbox" name="box-puzzle">
-            <input type="checkbox" name="box-puzzle">
-            <input type="checkbox" name="box-puzzle">
-        </fieldset>         -->
-
-
         </section>
 
         <section>
-            <p>Don't press me</p>
             <input type="checkbox" name="special">
         </section>
 
@@ -275,58 +262,57 @@
         <input type="range" id="horizontal" value="49" max="100">
 
         <dialog>
-            <h1>Welcome to Cube Trainer</h1>
+            <h1>Cube Trainer</h1>
+            <h2>Door Stefan Radouane</h2>
+            <h3>Gemaakt voor CCS to the Rescue - 2023</h3>
             <p>So you want to learn how to cube right</p>
             <p>Select the step that you want to solve!</p>
             <!-- <p>You are now going to solve the last step of the rubiks cube.</p> -->
             <p>Good Luck!</p>
             <section>
                 <section>
-                    <h3>Step 1</h3>
+                    <h3>Level 1</h3>
                     <p>Make a white cross (top)</p>
                     <input type="checkbox" data-level="1-spectator">
                 </section>
                 <section>
-                    <h3>Step 2</h3>
-                    <p>Complete the white side (bottom)</p>
+                    <h3>Level 2</h3>
+                    <p>Complete the white side</p>
                     <input type="checkbox" disabled>
                 </section>
                 <section>
-                    <h3>Step 3</h3>
+                    <h3>Level 3</h3>
                     <p>Complete the second row</p>
                     <input type="checkbox" disabled>
                 </section>
                 <section>
-                    <h3>Step 4</h3>
-                    <p>Yellow cross (top)</p>
+                    <h3>Level 4</h3>
+                    <p>Yellow cross</p>
                     <input type="checkbox" disabled>
                 </section>
                 <section>
-                    <h3>Step 5</h3>
-                    <p>Complete the yellow side (top)</p>
+                    <h3>Level 5</h3>
+                    <p>Complete the yellow side</p>
                     <input type="checkbox" disabled>
                 </section>
                 <section>
-                    <h3>Step 6</h3>
-                    <p>Set the corners on the correct place</p>
+                    <h3>Level 6</h3>
+                    <p>Set the corners</p>
                     <input type="checkbox" disabled>
                 </section>
                 <section>
-                    <h3>Step 7</h3>
+                    <h3>Level 7</h3>
                     <p>Complete the cube</p>
-                    <input type="checkbox" value="7" data-level="7" checked>
+                    <input type="checkbox" value="7" data-level="7"> <!-- REMOVE CHECKED -->
                 </section>
                 <section>
                     <h3>Look at a solved cube</h3>
                     <p>Why not?</p>
-                    <input type="checkbox" data-level="spectator">
+                    <input type="checkbox" data-level="spectator"> 
                 </section>
             </section>
-            <!-- <input type="checkbox"> REMOVE CHECKED -->
         </dialog>
     </form>
-
-    <!-- <input type="checkbox" name="levelup" style="position: absolute; left: 0;"> -->
     <script src="scripts/slider.js"></script>
 </body>
 

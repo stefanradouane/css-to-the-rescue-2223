@@ -1,5 +1,3 @@
-
-
 section:has(input[name="special"]) {
     padding: var(--base-offset);
     position: absolute;
@@ -8,151 +6,10 @@ section:has(input[name="special"]) {
 }
 
 section:has(input[name="special"]:checked)+article {
-    animation: implosion 1s ease infinite;
+    animation: explosion 1s linear infinite;
 }
 
-
-
-body:has(input[name="special"]:checked) h1[data-effect="special"] {
-    animation: pop-up 1s ease infinite;
-    color: white;
-    opacity: 1;
-    visibility: visible;
-}
-
-body:not(body:has(input[name="special"]:checked), body:has(input[data-level]:checked)) h1[data-effect="special"] {
-    visibility: hidden;
-    opacity: 0;
-}
-
-body:has(input[data-level]:checked) h1[data-effect="special"]:before {
-    animation: fadeTextOut var(--animation-timing) forwards var(--animation-delay);
-    opacity: 1;
-}
-
-body:has(input[data-level*="spectator"]:checked) h1[data-effect="special"]:before {
-    content: "Spectator mode";
-}
-
-h1[data-effect="special"]::before {
-    transition: var(--animation-timing) all;
-    color: white;
-    content: "Building moves";
-    opacity: 0;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    text-align: center;
-}
-
-
-body:has(input[name="special"]:checked) h1[data-effect="special"]::before {
-    animation: none;
-    opacity: 0;
-}
-
-@keyframes fadeTextOut {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes fadeTextOut2 {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-h1[data-effect="special"]:after {
-    color: transparent;
-    transition: var(--animation-timing) all var(--animation-delay);
-    content: "You broke the cube...";
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    opacity: 0;
-    animation: changeToFix 0ms steps(1) forwards;
-}
-
-
-@keyframes changeToFix {
-    0% {
-        content: "You broke the cube..";
-    }
-
-    100% {
-        content: "Fixing the cube";
-    }
-}
-
-body:has(input[name="special"]:checked) h1[data-effect="special"]:after {
-    color: white;
-    opacity: 1;
-    animation: none;
-}
-
-h1[data-effect="special"] span {
-    display: inline;
-    position: static;
-}
-
-
-
-h1[data-effect="special"] span:after {
-    transition: var(--animation-timing) all;
-    content: "s";
-    color: transparent;
-}
-
-body:has(input[name="special"]:checked) h1[data-effect="special"] span:after {
-    animation: changeContent 0s steps(1) forwards 1s;
-    color: white;
-}
-
-@keyframes changeContent {
-    0% {
-        content: "s";
-    }
-
-    100% {
-        content: "ed";
-    }
-}
-
-
-@keyframes pop-up {
-    0% {
-        scale: 1;
-    }
-
-    250% {
-        scale: 1.2;
-    }
-
-    50% {
-        scale: 1;
-    }
-
-    75% {
-        scale: 1.5;
-    }
-
-    100% {
-        scale: 1;
-    }
-}
-
-@keyframes implosion {
+@keyframes explosion {
     0% {
         transform: rotateX(calc(var(--x-deg) + 10deg - calc(var(--x-deg) / 10))) rotateY(calc(var(--y-deg) + 10deg - calc(var(--y-deg) / 10)));
     }
@@ -220,7 +77,7 @@ body:has(input[name="special"]:checked) h1[data-effect="special"] span:after {
 /* MESS UP THE CUBE :) */
 
 body:not(input[name="special"]:checked) article>span {
-    transition: 200ms all var(--animation-delay);
+    transition: var(--transition-timing) all var(--animation-delay);
 }
 
 body:has(input[name="special"]:checked) article>span:nth-child(1n) {

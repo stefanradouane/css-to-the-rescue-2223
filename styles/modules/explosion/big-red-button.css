@@ -1,25 +1,34 @@
 /* BIG RED BUTTON */
 input[name="special"] {
     appearance: none;
-    background: #cc0000;
+    background: var(--color-red);
     border-radius: 50%;
-    box-shadow: inset 0 0.25em 0.125em rgba(255, 255, 255, 0.3),
-        inset 0 -0.25em 0.125em rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0.25em 0.125em var(--highlight-dark),
+        inset 0 -0.25em 0.125em var(--shadow-light);
     display: block;
-    height: var(--object-size);
+    height: calc(var(--object-size) * 1.5);
     margin: auto;
     padding: 0.55em;
     position: relative;
-    width: var(--object-size);
+    width: calc(var(--object-size) * 1.5);
+
+    max-width: 100px;
+    max-height: 100px;
 }
 
 input[name="special"]:after {
-    content: "";
-    display: block;
+    font-size: var(--font-size--small);
+    transition: var(--transition-timing) all;
+    content: "Don't press me";
+    text-align: center;
+    padding: 0.55em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
-    box-shadow: 0 0 0.5em rgba(0, 0, 0, 1),
-        inset 0 0.25em 0.3em rgba(255, 255, 255, 0.3),
-        inset 0 -0.25em 0.3em rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 0.5em var(--color-black),
+        inset 0 0.25em 0.3em var(--highlight-dark),
+        inset 0 -0.25em 0.3em var(--shadow-dark);
     cursor: pointer;
     height: 100%;
     position: relative;
@@ -27,7 +36,8 @@ input[name="special"]:after {
 }
 
 input[name="special"]:checked:after {
-    box-shadow: 0 0 0.5em rgba(0, 0, 0, 1),
-        inset 0 0.1em 0.3em rgba(0, 0, 0, 0.5),
-        inset 0 -0.1em 0.3em rgba(0, 0, 0, 0.5);
+    padding-top: 1em;
+    box-shadow: 0 0 0.5em var(--color-black),
+        inset 0 0.1em 0.3em var(--shadow-dark),
+        inset 0 -0.1em 0.3em var(--shadow-dark);
 }

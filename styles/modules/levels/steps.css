@@ -1,0 +1,11 @@
+:root:has(input[name="end"]:checked) {
+    --current-level: "loser";
+}
+
+:root:has(fieldset[data-layer="1"]:valid) {
+    --current-level: "2";
+}
+
+:root:has(fieldset[data-layer="2"]:valid) {
+    --current-level: "3";
+}

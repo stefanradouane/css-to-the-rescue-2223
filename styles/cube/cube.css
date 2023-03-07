@@ -1,31 +1,28 @@
-/* Lets build a cube out of CSS */
-/* Made by Stefan Radouane */
-
 /*                    */
 /* Define some colors */
 /*                    */
-span[data-color="yellow"] {
-    background-color: yellow;
+[data-color="yellow"] {
+    background-color: var(--color-yellow);
 }
 
-span[data-color="white"] {
-    background-color: white;
+[data-color="white"] {
+    background-color: var(--color-white);
 }
 
-span[data-color="red"] {
-    background-color: red;
+[data-color="red"] {
+    background-color: var(--color-red);
 }
 
-span[data-color="green"] {
-    background-color: green;
+[data-color="green"] {
+    background-color: var(--color-green);
 }
 
-span[data-color="blue"] {
-    background-color: blue;
+[data-color="blue"] {
+    background-color: var(--color-blue);
 }
 
-span[data-color="orange"] {
-    background-color: orange;
+[data-color="orange"] {
+    background-color: var(--color-orange);
 }
 
 
@@ -53,6 +50,25 @@ span>span {
     width: var(--object-size);
     height: var(--object-size);
     opacity: 0.9;
+}
+
+span>input[type="checkbox"] {
+    appearance: none;
+    position: absolute;
+    display: block;
+    width: var(--object-size);
+    height: var(--object-size);
+    opacity: 0.9;
+}
+
+span>input[type="checkbox"]:checked {
+    appearance: none;
+    position: absolute;
+    display: block;
+    width: var(--object-size);
+    height: var(--object-size);
+    opacity: 0.9;
+    background-color: green;
 }
 
 
@@ -282,15 +298,15 @@ span:nth-of-type(23) span:nth-of-type(2) {
 }
 
 /* BLOCK TOP FRONT LEFT */
-span:nth-of-type(24) span:nth-of-type(1) {
+span:nth-of-type(24) input {
     transform: translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * 1.5)) translateX(calc(var(--object-size) * 2)) rotateX(0);
 }
 
-span:nth-of-type(24) span:nth-of-type(2) {
+span:nth-of-type(24) span:nth-of-type(1) {
     transform: translateY(calc(var(--object-size) * 2)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * 2.5)) rotateY(90deg);
 }
 
-span:nth-of-type(24) span:nth-of-type(3) {
+span:nth-of-type(24) span:nth-of-type(2) {
     transform: translateY(calc(var(--object-size) * 2.5)) translateZ(calc(var(--object-size) * 1)) translateX(calc(var(--object-size) * 2)) rotateX(90deg);
 }
 

@@ -1,0 +1,43 @@
+/*************/
+/* Level 1   */
+/* Spectator */
+/*************/
+body:has(dialog input[data-level*="1"]:checked) span[data-level1-color="white"] {
+    background-color: var(--color-white);
+}
+
+body:has(dialog input[data-level*="1"]:checked) span[data-level1-color="yellow"] {
+    background-color: var(--color-yellow);
+}
+
+body:has(dialog input[data-level*="1"]:checked) span[data-level1-color="blue"] {
+    background-color: var(--color-blue);
+}
+
+body:has(dialog input[data-level*="1"]:checked) span[data-level1-color="red"] {
+    background-color: var(--color-red);
+}
+
+body:has(dialog input[data-level*="1"]:checked) span[data-level1-color="green"] {
+    background-color: var(--color-green);
+}
+
+body:has(dialog input[data-level*="1"]:checked) span[data-level1-color="orange"] {
+    background-color: var(--color-orange);
+}
+
+/************/
+/* Level 7  */
+/* Playable */
+/************/
+body:has(dialog input[data-level="7"]:checked) span[data-level7-color="green"] {
+    background-color: var(--color-green);
+}
+
+body:has(dialog input[data-level="7"]:checked) span[data-level7-color="red"] {
+    background-color: var(--color-red);
+}
+
+body:has(dialog input[data-level="7"]:checked) span[data-level7-color="orange"] {
+    background-color: var(--color-orange);
+}

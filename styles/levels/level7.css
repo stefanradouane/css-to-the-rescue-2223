@@ -1,6 +1,10 @@
-/*           */
-/* SPIN CUBE */
-/*           */
+/***********/
+/* Level 7 */
+/***********/
+/*--------------------------------------------------*/
+/* This document contains the logic for level 7     */
+/* Each step turn could be either 1 spin or 2 spins */
+/*--------------------------------------------------*/
 
 /* Spin the front side (green side) of the cube. */
 /* Double move (two steps) */

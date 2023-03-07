@@ -1,7 +1,10 @@
+/* Default */
+/* Show no sections */
 section[data-level-layers] {
     display: none;
 }
 
+/* If level 7 selected, show section */
 body:has(dialog input[data-level="7"]:checked) section[data-level-layers="7"] {
     display: block;
 }

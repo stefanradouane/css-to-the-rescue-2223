@@ -1,0 +1,33 @@
+/* Input */
+input[name="box-puzzle"] {
+    align-items: center;
+    appearance: none;
+    background-color: var(--control-color);
+    border: none;
+    display: flex;
+    font-size: var(--font-size--small);
+    justify-content: center;
+    padding: .5em;
+    text-align: center;
+    height: calc(var(--object-size));
+    width: calc(var(--object-size));
+    transition: var(--transition-timing) all;
+}
+
+/* Text on the button */
+input[name="box-puzzle"]:after {
+    content: attr(data-type);
+}
+
+/* States */
+input[name="box-puzzle"]:hover {
+    background-color: var(--control-color--hover);
+}
+
+input[name="box-puzzle"]:active {
+    background-color: var(--control-color--active);
+}
+
+input[name="box-puzzle"]:checked {
+    background-color: var(--control-color--checked);
+}

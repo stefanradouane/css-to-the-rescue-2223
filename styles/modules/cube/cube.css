@@ -26,7 +26,18 @@
 }
 
 
+/* Style the cube */
+article {
+    transition: 300ms all;
+    position: relative;
+    display: block;
+    width: calc(var(--object-size) * 3);
+    height: calc(var(--object-size) * 3);
+    transform-style: preserve-3d;
+}
 
+
+ 
 /* Corner point could be a: 
  * Corner piece (contains 3 sides)
  * Row piece (contains 2 sides)

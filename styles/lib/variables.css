@@ -1,0 +1,52 @@
+:root {
+    --object-size: 50px;
+    --move-deg: 180deg;
+    --base-offset: 1em;
+    --current-level: "1";
+    --curve: cubic-bezier(0.5, 1, 0.7, 1.4);
+    
+    /* Defining some colors */
+    --base-color: crimson;
+    --dark-base-color: rgb(80 0 20);
+    /* Cube colors */
+    --color-red: hsl(6, 100%, 35%);
+    --color-green: hsl(120, 100%, 30%);
+    --color-orange: hsl(40, 100%, 45%);
+    --color-yellow: yellow;
+    --color-yellow: hsl(60, 100%, 40%);
+    --color-white: white;
+    --color-white: hsl(240, 10%, 90%);
+    --color-blue: blue;
+    --color-blue: hsl(210, 100%, 40%);
+
+    --control-color:#444;
+    --control-color--hover:#555;
+    --control-color--active:#333;
+    --control-color--checked:#222;
+
+    --transition-timing:300ms;
+    --animation-delay: 1s;
+    --animation-timing: 500ms;
+    --font-size: 1em;
+    --font-size--small: .8em;
+}
+
+/* Responsive variables */
+@media only screen and (min-width: 500px) {
+    :root {
+        --object-size: 75px;
+        --base-offset: 1.2em;
+        --font-size: 1.2em;
+        --font-size--small: 1em;
+
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    :root {
+        --object-size: 100px;
+        --base-offset: 1.4em;
+        --font-size: 1.3em;
+        --font-size--small: 1.2em;
+    }
+}

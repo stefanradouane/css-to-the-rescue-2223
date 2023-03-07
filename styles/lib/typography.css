@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "Rocher";
+    src: url("../../assets/fonts/RocherColorGX.woff2");
+}
+
+@font-palette-values --base {
+    font-family: "Rocher";
+    base-palette: 2;
+    /* Define some colors in the palette */
+    /* Look at my work for WAFS */
+}

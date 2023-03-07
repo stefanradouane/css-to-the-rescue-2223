@@ -79,6 +79,7 @@ button[type="reset"] {
     padding: calc(var(--base-offset) / 2) var(--base-offset);
     background-color: grey;
     z-index: 1;
+    font-size: 1em;
 }
 
 
@@ -143,67 +144,3 @@ input[type="range"][aria-orientation="vertical"] {
     top: 50%;
 }
 
-
-/* BIG RED BUTTON */
-input[name="special"] {
-    appearance: none;
-    background: #cc0000;
-    border-radius: 50%;
-    box-shadow: inset 0 0.25em 0.125em rgba(255, 255, 255, 0.3),
-        inset 0 -0.25em 0.125em rgba(0, 0, 0, 0.3);
-    display: block;
-    height: var(--object-size);
-    margin: auto;
-    padding: 0.55em;
-    position: relative;
-    width: var(--object-size);
-}
-
-input[name="special"]:after {
-    content: "";
-    display: block;
-    border-radius: 50%;
-    box-shadow: 0 0 0.5em rgba(0, 0, 0, 1),
-        inset 0 0.25em 0.3em rgba(255, 255, 255, 0.3),
-        inset 0 -0.25em 0.3em rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-    height: 100%;
-    position: relative;
-    width: 100%;
-}
-
-input[name="special"]:checked:after {
-    box-shadow: 0 0 0.5em rgba(0, 0, 0, 1),
-        inset 0 0.1em 0.3em rgba(0, 0, 0, 0.5),
-        inset 0 -0.1em 0.3em rgba(0, 0, 0, 0.5);
-}
-
-
-/* SOLVE BOXES */
-
-input[name="box-puzzle"] {
-    height: calc(var(--object-size));
-    width: calc(var(--object-size));
-    appearance: none;
-    background-color: #444;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* input[name="box-puzzle"][data-type*=green i] {
-    background: green;
-} */
-
-input[name="box-puzzle"]:after {
-    content: attr(data-type);
-}
-
-input[name="box-puzzle"]:active {
-    background-color: #333;
-}
-
-input[name="box-puzzle"]:checked {
-    background-color: #333;
-}

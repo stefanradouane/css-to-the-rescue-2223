@@ -1,0 +1,213 @@
+/* Default */
+/* Make the section and fieldsets appear an disappear. */
+section[data-layer="finish"],
+fieldset:not([data-layer="1"]) {
+    transform: translateX(100%);
+}
+
+/* Styling of the finished section */
+section[data-layer="finish"]{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    bottom: 0;
+    padding: var(--base-offset);
+    bottom: 0;
+    position: absolute;
+}
+
+section[data-layer="finish"] img{
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Style the text that appears after you complete a step */
+section:has(input[name="box-puzzle"]) p {
+    text-align: center;
+    font-size: 1.3em;
+    opacity: 0;
+    transform: translateY(-100%);
+}
+
+
+/* Animate the text that appears after you complete a step */
+section:has(fieldset[data-layer="1"]:valid) p {
+    animation: next var(--animation-timing) forwards ease;
+}
+
+section:has(fieldset[data-layer="2"]:valid) p {
+    animation: next2 var(--animation-timing) forwards ease;
+}
+
+section:has(fieldset[data-layer="3"]:valid) p {
+    animation: next var(--animation-timing) forwards ease;
+}
+
+section:has(fieldset[data-layer="4"]:valid) p {
+    animation: next2 var(--animation-timing) forwards ease;
+}
+
+section:has(fieldset[data-layer="5"]:valid) p {
+    animation: next var(--animation-timing) forwards ease;
+}
+
+section:has(fieldset[data-layer="6"]:valid) p {
+    animation: next2 var(--animation-timing) forwards ease;
+}
+
+section:has(fieldset[data-layer="7"]:valid) p {
+    animation: next var(--animation-timing) forwards ease;
+}
+
+
+/* ----------------------------------------------------- */
+/* Animation for the text                                */
+/* Both next and next2 are the same animation            */
+/* They are implementen to make sure the animation plays */
+/* ----------------------------------------------------- */
+@keyframes next {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(-200%);
+        font-size: 2em;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+}
+
+@keyframes next2 {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(-200%);
+        font-size: 2em;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+}
+
+
+/* --------------------------------------------- */
+/* Make the fieldset disappear after being valid */
+/* The next one appears with an animation        */
+/* --------------------------------------------- */
+
+/* Step 1 */
+section:has(fieldset[data-layer="1"]:valid) fieldset[data-layer="1"] {
+    transform: translateX(0);
+    animation: fadeOut var(--animation-timing) forwards ease var(--animation-timing);
+    pointer-events: none; /* fix the tripping animation if clicked again */
+}
+
+section:has(fieldset[data-layer="1"]:valid) fieldset[data-layer="2"] {
+    animation: fadeIn var(--animation-timing) forwards ease var(--animation-timing);
+}
+
+/* Step 2 */
+section:has(fieldset[data-layer="2"]:valid) fieldset[data-layer="2"] {
+    transform: translateX(0);
+    animation: fadeOut var(--animation-timing) forwards ease var(--animation-timing);
+    pointer-events: none;
+}
+
+section:has(fieldset[data-layer="2"]:valid) fieldset[data-layer="3"] {
+    animation: fadeIn var(--animation-timing) forwards ease var(--animation-timing);
+}
+
+/* Step 3 */
+section:has(fieldset[data-layer="3"]:valid) fieldset[data-layer="3"] {
+    transform: translateX(0);
+    animation: fadeOut var(--animation-timing) forwards ease var(--animation-timing);
+    pointer-events: none;
+}
+
+section:has(fieldset[data-layer="3"]:valid) fieldset[data-layer="4"] {
+    animation: fadeIn var(--animation-timing) forwards ease var(--animation-timing);
+}
+
+/* Step 4 */
+section:has(fieldset[data-layer="4"]:valid) fieldset[data-layer="4"] {
+    transform: translateX(0);
+    animation: fadeOut var(--animation-timing) forwards ease var(--animation-timing);
+    pointer-events: none;
+}
+
+section:has(fieldset[data-layer="4"]:valid) fieldset[data-layer="5"] {
+    animation: fadeIn var(--animation-timing) forwards ease var(--animation-timing);
+}
+
+/* Step 5 */
+section:has(fieldset[data-layer="5"]:valid) fieldset[data-layer="5"] {
+    transform: translateX(0);
+    animation: fadeOut var(--animation-timing) forwards ease var(--animation-timing);
+    pointer-events: none;
+}
+
+section:has(fieldset[data-layer="5"]:valid) fieldset[data-layer="6"] {
+    animation: fadeIn var(--animation-timing) forwards ease var(--animation-timing);
+}
+
+/* Step 6 */
+section:has(fieldset[data-layer="6"]:valid) fieldset[data-layer="6"] {
+    transform: translateX(0);
+    animation: fadeOut var(--animation-timing) forwards ease var(--animation-timing);
+    pointer-events: none;
+}
+section:has(fieldset[data-layer="6"]:valid) fieldset[data-layer="7"] {
+    animation: fadeIn var(--animation-timing) forwards ease var(--animation-timing);
+}
+/* Step 7 - Last step */
+section:has(fieldset[data-layer="7"]:valid) fieldset[data-layer="7"] {
+    transform: translateX(0);
+    animation: fadeOut var(--animation-timing) forwards ease var(--animation-timing);
+    pointer-events: none;
+}
+
+section:has(fieldset[data-layer="7"]:valid) section[data-layer="finish"] {
+    animation: fadeIn var(--animation-timing) forwards ease var(--animation-timing);
+}
+
+
+/* --------------------------- */
+/* Animation for the fieldsets */
+/* --------------------------- */
+
+@keyframes fadeOut {
+    0% {
+        transform: translateX(0);
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

@@ -1,64 +1,15 @@
-@import "./cube/all.css";
+/* @import "./box-puzzle/all.css"; */
+/* @import "./cube/all.css"; */
+/* @import "./home/home.css"; */
 @import "./input.css";
 @import "./impossible.css";
-@import "./home/home.css";
-@import "./fieldset.css";
-@import "./levels/all.css";
+/* @import "./fieldset.css"; */
+/* @import "./levels/all.css"; */
 
-@font-face {
-    font-family: "Rocher";
-    src: url("../assets/fonts/RocherColorGX.woff2");
-}
-
-@font-palette-values --base {
-    font-family: "Rocher";
-    base-palette: 2;
-}
-
-* {
-    font-family: "Rocher";
-
-    /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
-    color: white;
-    font-weight: 500;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-palette: --base;
-}
-
-html {
-    overflow: hidden;
-}
-
-:root {
-    --base-color: crimson;
-    --dark-base-color: rgb(80 0 20);
-    --object-size: 50px;
-    --move-deg: 180deg;
-    --base-offset: 1em;
-    --current-level: "1";
-    --curve: cubic-bezier(0.5, 1, 0.7, 1.4);
-    --animation-timing: 500ms;
-    /* --curve:cubic-bezier(.49,.99,.58,1.2); */
-    /* --curve:cubic-bezier(.55,.2,.78,1.23); */
-    /* --curve:cubic-bezier(.69,.99,.79,1.29); */
+@import 'lib/all.css';
+@import 'modules/all.css';
 
 
-
-    /* --color-green: green; */
-    --color-red: red;
-    --color-red: hsl(6, 100%, 35%);
-    --color-green: hsl(120, 100%, 30%);
-    /* --color-orange: orange; */
-    --color-orange: hsl(40, 100%, 45%);
-    --color-yellow: yellow;
-    --color-yellow: hsl(60, 100%, 40%);
-    --color-white: white;
-    --color-white: hsl(240, 10%, 90%);
-    --color-blue: blue;
-    --color-blue: hsl(210, 100%, 40%);
-}
 
 :root:has(input[name="end"]:checked) {
     --current-level: "loser";
@@ -72,19 +23,7 @@ html {
     --current-level: "3";
 }
 
-@media only screen and (min-width: 500px) {
-    :root {
-        --object-size: 75px;
-        --base-offset: 1.2em;
-    }
-}
 
-@media only screen and (min-width: 1000px) {
-    :root {
-        --object-size: 100px;
-        --base-offset: 1.4em;
-    }
-}
 
 body {
     height: 100vh;
@@ -128,15 +67,16 @@ body:has(input[data-easter-egg="1"]:checked) {
 		100%,
         100%;
 
-	animation: 3s golven infinite linear;
-	}
+	animation: 5s golven infinite linear;
+    }
+    
 
 @keyframes golven {
 	100% {
 		background-position: 
             100vw 100%,
-			300vw 100%,
 			200vw 100%,
+			300vw 100%,
 			100vw 100%,
 			200vw 100%;
 		}
@@ -161,36 +101,6 @@ header p::after {
 
 /* V2 */
 
-article {
-    transition: 300ms all;
-    position: relative;
-    display: block;
-    width: calc(var(--object-size) * 3);
-    height: calc(var(--object-size) * 3);
-    transform-style: preserve-3d;
-}
-
-/* 
-article span:not(article > span) {
-    position: absolute;
-    display: block;
-    /* background: white; 
-width: var(--object-size);
-height: var(--object-size);
-opacity: 0.9;
-}
-
-article>span {
-    position: absolute;
-    display: block;
-    /* transition: 200ms; 
-    background: transparent;
-    transform-style: preserve-3d;
-    width: calc(var(--object-size) * 3);
-    height: calc(var(--object-size) * 3);
-}
-
-*/
 
 
 /* Box puzzle */
@@ -214,65 +124,4 @@ fieldset:has(input[name="box-puzzle"]) {
     gap: var(--base-offset);
     border: none;
     padding: var(--base-offset);
-}
-
-
-@keyframes fadeOut {
-    0% {
-        transform: translateX(0);
-        transform: translateY(0);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateY(100%);
-    }
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateX(100%);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes next {
-    0% {
-        opacity: 0;
-        transform: translateY(-100%);
-    }
-
-    20% {
-        opacity: 1;
-        transform: translateY(-200%);
-        font-size: 2em;
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateY(0);
-    }
-}
-
-@keyframes next2 {
-    0% {
-        opacity: 0;
-        transform: translateY(-100%);
-    }
-
-    20% {
-        opacity: 1;
-        transform: translateY(-200%);
-        font-size: 2em;
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateY(0);
-    }
 }

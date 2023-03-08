@@ -25,11 +25,11 @@ Na de eerste dag aan de opdracht werken had ik eigenlijk al een rubiks cube gema
 
 <img src="/assets/process-images/v1.png"
      alt="v1 image"
-     style="width: 300px;"/>
+     style="width: 40%;"/>
 
 <img src="/assets/process-images/v1-code.png"
      alt="v1 code"
-     style="width: 300px;"/>
+     style="width: 40%;"/>
 
 ### Versie 2
 
@@ -41,7 +41,7 @@ Om dit idee uit te werken heb ik eerst een schets gemaakt.
 
 <img src="/assets/process-images/v2-schets.png"
      alt="schets 3D-cube"
-     style="width: 300px;"/>
+     style="width: 40%;"/>
 
 
 #### Kubus fases
@@ -60,8 +60,12 @@ Om eerlijk was het wel een beetje puzzelen hoe de kubus nou precies opgebouwd mo
 
 <img src="/assets/process-images/v2-cube-fase-end.png"
      alt="3D-cube fase end"
-     style="width: 100%;"/>
+     style="width: 40%;"/>
+<img src="/assets/process-images/v2-code.png"
+     alt="v2 code"   
+     style="width: 40%;"/>
 
+> Zoals je kan zien gebruik ik `data-color` om de kleur van het vlak te bepalen. Dit zorgt ervoor dat ik gemakkelijk verschillende level kan implementeren.
 
 -   24 spans met daarin 1, 2 of 3 spans.
 -   Dit is wel animeerbaar.

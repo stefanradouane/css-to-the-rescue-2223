@@ -38,7 +38,7 @@ Vervolgens heb ik de hele cube opnieuw gemaakt, maar nu met 24 `span`'s voor all
 
 Om dit idee uit te werken heb ik eerst een schets gemaakt.
 
-<img src="/assets/process-images/v2-schets.png"
+<img src="/assets/process-images/v2-schets.jpeg"
      alt="schets 3D-cube"
      style="width: 45%;"/>
 
@@ -77,11 +77,28 @@ Nu ik de cubus had ging ik proberen om de rijen van de kubus te laten draaien. N
 
 ### Versie 3
 
-Tijdens werd mij verteld dat ik het toch nog een keer moest proberen om de kubus draaibaar te maken. Ik heb hiernaar geluisterd en heb het een tweede kans gegeven. Aangezien een kubus [43.252.003.274.489.856,000](https://www.google.com/search?q=aantaal+mogelijkheden+rubiks+cube&oq=aantaal+mogelijkheden+rubiks+cube&aqs=chrome..69i57j0i13i512.6313j0j7&sourceid=chrome&ie=UTF-8) mogelijkheden, heb ik dit iets versimpeld voor mijzelf.
+#### Cube trainer
 
--   FB: Toch proberen werkend maken
--   Werkend gemaakt (levels rubisk cube)
--   Werkend.
+Tijdens werd mij verteld dat ik het toch nog een keer moest proberen om de kubus draaibaar te maken. Ik heb hiernaar geluisterd en heb het een tweede kans gegeven. Aangezien een kubus [43.252.003.274.489.856,000](https://www.redbull.com/nl-nl/10-feiten-rubiks-cube#:~:text=43.252.003.274.489.856%2C000) mogelijkheden, heb ik dit iets versimpeld voor mijzelf. Ik weet dat er een beginners stappen plan is om te leren hoe je een kubus moet oplossen, en ik heb dus besloten om mijn concept te veranderen naar een 'cube trainer'. Dit concept splitst de kubus op in 7 levels. Elk level heeft een aantal stappen die gevolgt moeten worden, om de kubus op te lossen. Ik heb besloten om de laatste stap van deze stappenreeks uit te werken.
+
+Als eerst heb ik bedacht om dit te doen met een soort spel bedieningspaneel. Ik heb hiervoor een schets gemaakt, maar ik vond zelf gelijk na het schetsen dat dit paneel te druk was. Ik heb bepaalde onderdelen hiervan wel verwerkt in de uiteindelijke werking van mijn concept.
+
+<img src="/assets/process-images/v3-schets.jpeg"
+     alt="schets bedieningspaneel"
+     style="width: 45%;"/>
+
+Daarnaast heb ik ook een schets gemaakt van het level overzicht.
+
+<img src="/assets/process-images/v3-schets-levels.jpeg"
+     alt="schets levels"
+     style="width: 45%;"/>
+
+
+#### Werking level
+
+Ik heb besloten om wel te werken met 6 knoppen (links onder op de schets). Met deze knoppen wil ik het mogelijk maken om de kubus op te lossen. Ik heb ervoor gekozen dat de juiste knop elke keer op een andere plaats staat, zodat dit niet elke keer bijvoorbeeld links boven is.
+
+
 
 ### Versie 4 (eind)
 

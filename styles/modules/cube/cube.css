@@ -72,14 +72,10 @@ span>input[type="checkbox"] {
     opacity: 0.9;
 }
 
+
+/* Hidden input */
 span>input[type="checkbox"]:checked {
-    appearance: none;
-    position: absolute;
-    display: block;
-    width: var(--object-size);
-    height: var(--object-size);
-    opacity: 0.9;
-    background-color: green;
+    opacity: 1;
 }
 
 
@@ -220,7 +216,7 @@ span:nth-of-type(14) span:nth-of-type(2) {
 }
 
 /* BLOCK MIDDLE MIDDLE RIGHT */
-span:nth-of-type(15) span:nth-of-type(1) {
+span:nth-of-type(15) input:nth-of-type(1) {
     transform: translateY(calc(var(--object-size) * 1)) translateZ(calc(var(--object-size) * 0)) translateX(calc(var(--object-size) * 2.5)) rotateY(90deg);
 }
 

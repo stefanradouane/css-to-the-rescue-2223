@@ -108,6 +108,14 @@ Ik heb besloten om wel te werken met 6 knoppen (links onder op de schets). Met d
 
 Nadat ik de laatste level werkend heb gemaakt ben ik begonnen met het uitbreiden van de website. Ik spectator mode in level 1 mogelijk gemaakt en heb een opgelosde cube spectator mode gemaakt. In deze modus zijn er geen knoppen aan de zijkant beschikbaar. Ik vond het toch leuk om de impossible cube nog te implementeren en heb hiervoor een knop gemaakt die de kubus breekt. Daarnaast slot heb ik een aantal eastereggs toegevoegd, zodat ik extra kon experimenteren met achtergronden. Tot slot heb ik alle bestand gefactord, zodat deze enigsinds productie klaar zijn. Ik heb deze bestanden aangepast door overal comments toe te voegen en  Ik ben uiteindelijk ontzettend trots op het eindresultaat.
 
+<img src="/assets/process-images/v-end-menu.png"
+     alt="end menu"
+     style="width: 45%;"/>
+<img src="/assets/process-images/v-end-game.png"
+     alt="end game"
+     style="width: 45%;"/>
+
+
 ## :rocket: Experimental CSS properties
 
 Ik heb geexperementeerd met een hoop CSS properties. Hieronder een opsomming:
@@ -115,7 +123,7 @@ Ik heb geexperementeerd met een hoop CSS properties. Hieronder een opsomming:
 - Verschillende pseudoselectoren (:not, :is, :has & :where)
 - Display-p3 kleuren
 - Custom properties
-- CSS '@' methoden
+- verschillende CSS '@' methoden
 - font-palette
 - Nesting
 
@@ -173,6 +181,20 @@ Met `@font-palette-values` kan je de kleuren van een gekleurd font veranderen.
 
 > Voor de fallback gebruik ik normale hsl kleuren
 
+
+### @property
+
+Met de `@property` kan je het mogelijk maken om variabelen te animeren. Ik heb dit gebruikt tijdens de tweede eateregg. Door deze property is het dus mogelijk om variabelen kleuren te animeren.
+
+```css
+@property --color-red {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: hsl(0, 100%, 40%);
+}
+```
+
+> Naast de `syntax: '<color>'` zijn er nog een [aantal van andere](https://developer.mozilla.org/en-US/docs/Web/CSS/@property/syntax) soorten syntax.
 
 -   Laatste versie
 -   Alles fancy maken

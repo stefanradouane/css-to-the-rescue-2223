@@ -1,15 +1,47 @@
+/* Set animatable custom propertys */
+@property --color-red {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: hsl(0, 100%, 40%);
+}
+@property --color-green {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: hsl(120, 100%, 30%);
+}
+@property --color-orange {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: hsl(40, 100%, 45%);
+}
+@property --color-yellow {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: hsl(60, 100%, 40%);
+}
+@property --color-white {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: hsl(240, 10%, 90%);
+}
+@property --color-blue {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: hsl(210, 100%, 40%);
+}
+
 :root{
     /* Base colors */
     --base-color: crimson;
     --dark-base-color: rgb(80 0 20);
 
-    /* Cube colors */
-    --color-red: hsl(0, 100%, 40%);
-    --color-green: hsl(120, 100%, 30%);
-    --color-orange: hsl(40, 100%, 45%);
-    --color-yellow: hsl(60, 100%, 40%);
-    --color-white: hsl(240, 10%, 90%);
-    --color-blue: hsl(210, 100%, 40%);
+    /* Colors to animate */
+    --color-red-2: hsl(0, 100%, 40%);
+    --color-green-2: hsl(120, 100%, 30%);
+    --color-orange-2: hsl(40, 100%, 45%);
+    --color-yellow-2: hsl(60, 100%, 40%);
+    --color-white-2: hsl(240, 10%, 90%);
+    --color-blue-2: hsl(210, 100%, 40%);
 
     /* Contol colors */
     --control-color:#444;
@@ -17,28 +49,63 @@
     --control-color--active:#333;
     --control-color--checked:#222;
 
+    /* Card color */
     --card-color: var(--dark-base-color);
-
 
     /* Default colors */
     --color-black:rgb(0,0,0);
     --color-white:rgb(255,255,255);
 
+    /* Highlight */
     --highlight-light:rgba(255, 255, 255, 0.5);
     --highlight-dark:rgba(255, 255, 255, 0.3);
 
+    /* Shadows */
     --shadow-light:rgba(0, 0, 0, 0.3);
     --shadow-dark:rgba(0, 0, 0, 0.5);
 }
 
 /* Cube colors if display colors are availible */
 @supports (color: color(display-p3 1 1 1)) {
+    /* Set custom propertys */
+    @property --color-red {
+        syntax: '<color>';
+        inherits: true;
+        initial-value: color(display-p3 0.862 0.128 0.041 / 1);
+    }
+    @property --color-green {
+        syntax: '<color>';
+        inherits: true;
+        initial-value: color(display-p3 0.113 0.779 0.087 / 1);
+    }
+    @property --color-orange {
+        syntax: '<color>';
+        inherits: true;
+        initial-value: color(display-p3 1 0.596 0.053 / 1);
+    }
+    @property --color-yellow {
+        syntax: '<color>';
+        inherits: true;
+        initial-value: color(display-p3 0.943 0.907 0.138 / 1);
+    }
+    @property --color-white {
+        syntax: '<color>';
+        inherits: true;
+        initial-value: color(display-p3 1 1 1 / 1);
+    }
+    @property --color-blue {
+        syntax: '<color>';
+        inherits: true;
+        initial-value: color(display-p3 0.11912, 0.24878, 0.71219);
+    }
+
+    /* Colors as a kind of memory */
     :root {
-        --color-blue: color(display-p3 0.11912, 0.24878, 0.71219);
-        --color-green: color(display-p3 0.113 0.779 0.087 / 1);
-        --color-yellow:color(display-p3 0.943 0.907 0.138 / 1);
-        --color-orange:color(display-p3 1 0.596 0.053 / 1);
-        --color-red:color(display-p3 0.862 0.128 0.041 / 1);
-        --color-white:color(display-p3 1 1 1 / 1);
+        --color-blue-2: color(display-p3 0.11912, 0.24878, 0.71219);
+        --color-green-2: color(display-p3 0.113 0.779 0.087 / 1);
+        --color-yellow-2:color(display-p3 0.943 0.907 0.138 / 1);
+        --color-orange-2:color(display-p3 1 0.596 0.053 / 1);
+        --color-red-2:color(display-p3 0.862 0.128 0.041 / 1);
+        --color-white-2:color(display-p3 1 1 1 / 1);
     }
 }

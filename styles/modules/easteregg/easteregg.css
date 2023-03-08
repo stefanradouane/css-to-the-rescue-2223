@@ -1,4 +1,4 @@
-/* Easter egg */
+/* Easter egg 1 */
 body:has(input[data-easter-egg="1"]:checked) {
     /* CHANGE COLORS */
     background: var(--base-color);
@@ -49,4 +49,74 @@ body:has(input[data-easter-egg="1"]:checked) {
 			100vw 100%,
 			200vw 100%;
 		}
+}
+
+/* Easter egg 2 */
+body:has(input[data-easter-egg="2"]:checked){
+	animation: changeColor 10s ease infinite;
+}
+
+@keyframes changeColor{
+	0%{
+		--color-red: var(--color-red-2);
+		--color-blue: var(--color-blue-2);
+		--color-green: var(--color-green-2);
+		--color-white: var(--color-white-2);
+		--color-orange: var(--color-orange-2);
+		--color-yellow: var(--color-yellow-2);
+	}
+
+	16.6%{
+		--color-red: var(--color-yellow-2);
+		--color-blue: var(--color-red-2);
+		--color-green: var(--color-blue-2);
+		--color-white: var(--color-green-2);
+		--color-orange: var(--color-white-2);
+		--color-yellow: var(--color-orange-2);
+	}
+
+	33.3%{
+		--color-red: var(--color-orange-2);
+		--color-blue: var(--color-yellow-2);
+		--color-green: var(--color-red-2);
+		--color-white: var(--color-blue-2);
+		--color-orange: var(--color-green-2);
+		--color-yellow: var(--color-white-2);
+	}
+
+	50%{
+		--color-red: var(--color-white-2);
+		--color-blue: var(--color-orange-2);
+		--color-green: var(--color-yellow-2);
+		--color-white: var(--color-red-2);
+		--color-orange: var(--color-blue-2);
+		--color-yellow: var(--color-green-2);
+	}
+
+	66.6%{
+		--color-red: var(--color-green-2);
+		--color-blue: var(--color-white-2);
+		--color-green: var(--color-orange-2);
+		--color-white: var(--color-yellow-2);
+		--color-orange: var(--color-red-2);
+		--color-yellow: var(--color-blue-2);
+	}
+
+	83.3%{
+		--color-red: var(--color-blue-2);
+		--color-blue: var(--color-green-2);
+		--color-green: var(--color-white-2);
+		--color-white: var(--color-orange-2);
+		--color-orange: var(--color-yellow-2);
+		--color-yellow: var(--color-red-2);
+	}
+
+	100%{
+		--color-red: var(--color-red-2);
+		--color-blue: var(--color-blue-2);
+		--color-green: var(--color-green-2);
+		--color-white: var(--color-white-2);
+		--color-orange: var(--color-orange-2);
+		--color-yellow: var(--color-yellow-2);
+	}
 }

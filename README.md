@@ -98,6 +98,10 @@ Daarnaast heb ik ook een schets gemaakt van het level overzicht.
 
 Ik heb besloten om wel te werken met 6 knoppen (links onder op de schets). Met deze knoppen wil ik het mogelijk maken om de kubus op te lossen. Ik heb ervoor gekozen dat de juiste knop elke keer op een andere plaats staat, zodat dit niet elke keer bijvoorbeeld links boven is.
 
+<img src="/assets/process-images/v3-werking-levels.jpeg"
+     alt="schets werking levels"
+     style="width: 45%;"/>
+
 
 
 ### Versie 4 (eind)

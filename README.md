@@ -23,7 +23,7 @@ Ik heb uiteindelijk gekozen voor de rubiks cube, omdat ik toevallig zelf ook bez
 
 Na de eerste dag aan de opdracht werken had ik eigenlijk al een rubiks cube gemaakt van HTML en CSS. Deze cubus bestond uit 54 losse divs. Ik liep alleen tegen een probleem aan nu en dat is dat ik de losse divs niet draaibaar kon maken, omdat ik deze divs met een eigen transform op de cube had geplaatst.
 
-<img src="main/assets/process-images/v1.png"
+<img src="/assets/process-images/v1.png"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />
 

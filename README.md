@@ -19,7 +19,7 @@ Ik heb uiteindelijk gekozen voor de rubiks cube, omdat ik toevallig zelf ook bez
 
 ## Proces
 
-### Versie 1
+### Versie 1 - Simpele kubus
 
 Na de eerste dag aan de opdracht werken had ik eigenlijk al een rubiks cube gemaakt van HTML en CSS. Deze cubus bestond uit 54 losse `div`'s. Ik liep alleen tegen een probleem aan nu en dat is dat ik de losse divs niet draaibaar kon maken, omdat ik deze divs met een eigen transform op de cube had geplaatst.
 
@@ -30,7 +30,7 @@ Na de eerste dag aan de opdracht werken had ik eigenlijk al een rubiks cube gema
      alt="v1 code"
      style="width: 45%;"/>
 
-### Versie 2
+### Versie 2 Draaibare kubus
 
 #### Kubus schets
 
@@ -66,13 +66,18 @@ Om eerlijk was het wel een beetje puzzelen hoe de kubus nou precies opgebouwd mo
 
 > Zoals je kan zien gebruik ik `data-color` om de kleur van het vlak te bepalen. Dit zorgt ervoor dat ik gemakkelijk verschillende level kan implementeren.
 
--   24 spans met daarin 1, 2 of 3 spans.
--   Dit is wel animeerbaar.
--   Foto van hoe de cubus is op gebouwd (schaal tekening)
--   Ik vond het lastig om de cubus te laten draaien
--   Nieuwe oplossing Impossible cube
+#### Draaibaar maken
+
+Nu ik de cubus had ging ik proberen om de rijen van de kubus te laten draaien. Na veel proberen met de kubus had ik het opgegeven, omdat ik hoofdpijn kreeg van het proberen. Ik heb op dit moment bedacht om mijn idee te veranderen naar de 'impossible cube'. Het lukte mij wel om de losse blokken te transformeren, alleen niet op een realistiche wijze, daarom dacht ik met CSS kan je de natuurwetten een beetje verbuigen en dat zorgt ervoor dat de impossible cube wel mogelijk was op een website.
+
+<img src="/assets/process-images/v2-impossible.png"
+     alt="v2 impossible"   
+     style="width: 45%;"/>
+
 
 ### Versie 3
+
+
 
 -   FB: Toch proberen werkend maken
 -   Werkend gemaakt (levels rubisk cube)

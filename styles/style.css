@@ -69,10 +69,7 @@ header {
     padding: var(--base-offset);
 }
 
-header p::after {
-    content: var(--current-level);
-    margin-left: calc(var(--base-offset) / 3);
-}
+
 
 
 /* V2 */

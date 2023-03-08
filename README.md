@@ -75,7 +75,7 @@ Nu ik de cubus had ging ik proberen om de rijen van de kubus te laten draaien. N
      style="width: 45%;"/>
 
 
-### Versie 3
+### Versie 3 Cube trainer
 
 #### Cube trainer
 
@@ -104,7 +104,40 @@ Ik heb besloten om wel te werken met 6 knoppen (links onder op de schets). Met d
 
 
 
-### Versie 4 (eind)
+### Versie 4 eind
+
+Nadat ik de laatste level werkend heb gemaakt ben ik begonnen met het uitbreiden van de website. Ik spectator mode in level 1 mogelijk gemaakt en heb een opgelosde cube spectator mode gemaakt. In deze modus zijn er geen knoppen aan de zijkant beschikbaar. Ik vond het toch leuk om de impossible cube nog te implementeren en heb hiervoor een knop gemaakt die de kubus breekt. Daarnaast slot heb ik een aantal eastereggs toegevoegd, zodat ik extra kon experimenteren met achtergronden. Tot slot heb ik alle bestand gefactord, zodat deze enigsinds productie klaar zijn. Ik heb deze bestanden aangepast door overal comments toe te voegen en  Ik ben uiteindelijk ontzettend trots op het eindresultaat.
+
+## Experimental CSS properties
+
+Ik heb geexperementeerd met een hoop CSS properties. Hieronder een opsomming:
+
+- Verschillende pseudoselectoren (:not, :is, :has & :where)
+- Display-p3 kleuren
+- Custom properties
+- CSS '@' methoden
+- font-palette
+- Nesting
+
+Ik heb niet alle punten van deze lijst geimplementeed. Bijvoorbeeld CSS nesting heb ik niet gebruikt ondanks dat ik SASS altijd fijner vind dan CSS, omdat CSS al lastig is om te debuggen, maar het chrome is nog niet klaar om CSS nesting te gebruiken en te debuggen. 
+
+Hieronder heb ik korte voorbeelden van hoe ik deze properties heb geimplementeerd:
+
+### :has selector
+
+Met de `:has` selector kan je op een krachtige wijze een soort van 'if statement' in je CSS maken. Ik heb de `:has` selector veel gebruikt om te zorgen dat iets pas in beeld komt als bijvoorbeeld een checkbox is geselecteerd. 
+
+```css
+:root:has(fieldset[data-layer="7"]:valid) {
+    --current-step: "Complete";
+}
+```
+
+> In dit voorbeeld word de variabel `--current-step` aangepast op het moment dat een checkbox is geselecteerd.
+
+### Display-p3 kleuren 
+
+### font-palette
 
 -   Laatste versie
 -   Alles fancy maken

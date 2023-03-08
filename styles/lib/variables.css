@@ -1,8 +1,9 @@
 :root {
+    --current-step: "1";
+    --current-level: "Spectator";
     --object-size: 50px;
     --move-deg: 180deg;
     --base-offset: .8em;
-    --current-level: "1";
     --curve: cubic-bezier(0.5, 1, 0.7, 1.4);
     --transition-timing:300ms;
     --animation-delay: 1s;

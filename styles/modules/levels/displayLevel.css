@@ -1,0 +1,10 @@
+/* Set level 7 if level 7 is played, otherwise spectator */
+:root:has(input[data-level="7"]:checked) {
+    --current-level: "7";
+}
+
+/* Set level */
+header h1::after {
+    content: var(--current-level);
+    margin-left: calc(var(--base-offset) / 3);
+}

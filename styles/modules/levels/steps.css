@@ -1,11 +1,30 @@
-:root:has(input[name="end"]:checked) {
-    --current-level: "loser";
+:root:has(input[name="special"]:checked) {
+    --current-step: "!?!??";
 }
-
 :root:has(fieldset[data-layer="1"]:valid) {
-    --current-level: "2";
+    --current-step: "2";
+}
+:root:has(fieldset[data-layer="2"]:valid) {
+    --current-step: "3";
+}
+:root:has(fieldset[data-layer="3"]:valid) {
+    --current-step: "4";
+}
+:root:has(fieldset[data-layer="4"]:valid) {
+    --current-step: "5";
+}
+:root:has(fieldset[data-layer="5"]:valid) {
+    --current-step: "6";
+}
+:root:has(fieldset[data-layer="6"]:valid) {
+    --current-step: "7";
+}
+:root:has(fieldset[data-layer="7"]:valid) {
+    --current-step: "Complete";
 }
 
-:root:has(fieldset[data-layer="2"]:valid) {
-    --current-level: "3";
+/* Set step */
+header p::after {
+    content: var(--current-step);
+    margin-left: calc(var(--base-offset) / 3);
 }

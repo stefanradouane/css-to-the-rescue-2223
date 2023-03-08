@@ -25,11 +25,10 @@ Na de eerste dag aan de opdracht werken had ik eigenlijk al een rubiks cube gema
 
 <img src="/assets/process-images/v1.png"
      alt="v1 image"
-     style="width: 40%;"/>
-
+     style="width: 45%;"/>
 <img src="/assets/process-images/v1-code.png"
      alt="v1 code"
-     style="width: 40%;"/>
+     style="width: 45%;"/>
 
 ### Versie 2
 
@@ -41,7 +40,7 @@ Om dit idee uit te werken heb ik eerst een schets gemaakt.
 
 <img src="/assets/process-images/v2-schets.png"
      alt="schets 3D-cube"
-     style="width: 40%;"/>
+     style="width: 45%;"/>
 
 
 #### Kubus fases
@@ -50,20 +49,20 @@ Om eerlijk was het wel een beetje puzzelen hoe de kubus nou precies opgebouwd mo
 
 <img src="/assets/process-images/v2-cube-fase-1.png"
      alt="3D-cube fase 1"
-     style="width: 75px;"/>
+     style="width: 20%;"/>
 <img src="/assets/process-images/v2-cube-fase-2.png"
      alt="3D-cube fase 2"
-     style="width: 75px;"/>
+     style="width: 20%;"/>
 <img src="/assets/process-images/v2-cube-fase-3.png"
      alt="3D-cube fase 3"
-     style="width: 75px;"/>
+     style="width: 20%;"/>
 
 <img src="/assets/process-images/v2-cube-fase-end.png"
      alt="3D-cube fase end"
-     style="width: 40%;"/>
+     style="width: 45%;"/>
 <img src="/assets/process-images/v2-code.png"
      alt="v2 code"   
-     style="width: 40%;"/>
+     style="width: 45%;"/>
 
 > Zoals je kan zien gebruik ik `data-color` om de kleur van het vlak te bepalen. Dit zorgt ervoor dat ik gemakkelijk verschillende level kan implementeren.
 

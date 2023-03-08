@@ -21,13 +21,47 @@ Ik heb uiteindelijk gekozen voor de rubiks cube, omdat ik toevallig zelf ook bez
 
 ### Versie 1
 
-Na de eerste dag aan de opdracht werken had ik eigenlijk al een rubiks cube gemaakt van HTML en CSS. Deze cubus bestond uit 54 losse divs. Ik liep alleen tegen een probleem aan nu en dat is dat ik de losse divs niet draaibaar kon maken, omdat ik deze divs met een eigen transform op de cube had geplaatst.
+Na de eerste dag aan de opdracht werken had ik eigenlijk al een rubiks cube gemaakt van HTML en CSS. Deze cubus bestond uit 54 losse `div`'s. Ik liep alleen tegen een probleem aan nu en dat is dat ik de losse divs niet draaibaar kon maken, omdat ik deze divs met een eigen transform op de cube had geplaatst.
 
 <img src="/assets/process-images/v1.png"
      alt="v1 image"
-     style="width: 300px; align-self:center; text-align:center;"/>
+     style="width: 300px;"/>
+
+<img src="/assets/process-images/v1-code.png"
+     alt="v1 code"
+     style="width: 300px;"/>
 
 ### Versie 2
+
+#### Kubus schets
+
+Vervolgens heb ik de hele cube opnieuw gemaakt, maar nu met 24 `span`'s voor alle blokken op de cube. Elk blokje kan bestaan uit 1, 2 of 3 vlakken. En elke vlak heeft een eigen positie in een 3D omgeving, deze omgeving is maximaal 300px bij 300px bij 300px. Elke 'blokje' is maximaal 300px bij 300px en staat ontzichtbaar gecentreerd in het midden van de kubus. De vlakken zijn wel zichtbaar en zijn allemaal correct gepositioneerd. Op deze manier kan ik het midden van het blokje draaien, en hierdoor draaien de vlakken correct mee.
+
+Om dit idee uit te werken heb ik eerst een schets gemaakt.
+
+<img src="/assets/process-images/v2-schets.png"
+     alt="schets 3D-cube"
+     style="width: 300px;"/>
+
+
+#### Kubus fases
+
+Om eerlijk was het wel een beetje puzzelen hoe de kubus nou precies opgebouwd moest worden uit kleuren, maar het is uiteindelijk wel gelukt.
+
+<img src="/assets/process-images/v2-cube-fase-1.png"
+     alt="3D-cube fase 1"
+     style="width: 75px;"/>
+<img src="/assets/process-images/v2-cube-fase-2.png"
+     alt="3D-cube fase 2"
+     style="width: 75px;"/>
+<img src="/assets/process-images/v2-cube-fase-3.png"
+     alt="3D-cube fase 3"
+     style="width: 75px;"/>
+
+<img src="/assets/process-images/v2-cube-fase-end.png"
+     alt="3D-cube fase end"
+     style="width: 100%;"/>
+
 
 -   24 spans met daarin 1, 2 of 3 spans.
 -   Dit is wel animeerbaar.

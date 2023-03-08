@@ -108,7 +108,7 @@ Ik heb besloten om wel te werken met 6 knoppen (links onder op de schets). Met d
 
 Nadat ik de laatste level werkend heb gemaakt ben ik begonnen met het uitbreiden van de website. Ik spectator mode in level 1 mogelijk gemaakt en heb een opgelosde cube spectator mode gemaakt. In deze modus zijn er geen knoppen aan de zijkant beschikbaar. Ik vond het toch leuk om de impossible cube nog te implementeren en heb hiervoor een knop gemaakt die de kubus breekt. Daarnaast slot heb ik een aantal eastereggs toegevoegd, zodat ik extra kon experimenteren met achtergronden. Tot slot heb ik alle bestand gefactord, zodat deze enigsinds productie klaar zijn. Ik heb deze bestanden aangepast door overal comments toe te voegen en  Ik ben uiteindelijk ontzettend trots op het eindresultaat.
 
-## Experimental CSS properties
+## :rocket: Experimental CSS properties
 
 Ik heb geexperementeerd met een hoop CSS properties. Hieronder een opsomming:
 
@@ -137,7 +137,42 @@ Met de `:has` selector kan je op een krachtige wijze een soort van 'if statement
 
 ### Display-p3 kleuren 
 
+Display-p3 kleuren zorgen ervoor dat een website een groot scala aan extra kleuren kunnen projecteren (Als het display deze kleuren ook aan kan).
+
+```css
+@supports (color: color(display-p3 1 1 1)) {
+    :root {
+        --color-blue: color(display-p3 0.13 0.128 0.909 / 1);
+        --color-green: color(display-p3 0.113 0.779 0.087 / 1);
+        --color-yellow:color(display-p3 0.943 0.907 0.138 / 1);
+        --color-orange:color(display-p3 1 0.596 0.053 / 1);
+        --color-red:color(display-p3 0.862 0.128 0.041 / 1);
+        --color-white:color(display-p3 1 1 1 / 1);
+    }
+}
+```
+
+> Ik heb de kleuren in een `@support` tag gezet, zodat de kleuren niet transparent worden als display-p3 niet ondersteund wordt.
+
 ### font-palette
+
+Met `@font-palette-values` kan je de kleuren van een gekleurd font veranderen.
+
+```css
+@font-palette-values --base {
+    font-family: "Rocher";
+    base-palette: 2;
+    override-colors:
+      0 #ffffff,
+      1 hsl(223, 85%, 40%),
+      2 hsl(223, 85%, 50%),
+      3 hsl(223, 85%, 40%)
+    ;
+}
+```
+
+> Voor de fallback gebruik ik normale hsl kleuren
+
 
 -   Laatste versie
 -   Alles fancy maken

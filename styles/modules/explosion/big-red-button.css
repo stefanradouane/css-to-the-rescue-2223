@@ -17,6 +17,7 @@ input[name="special"] {
 }
 
 input[name="special"]:after {
+    font-palette: --red;
     font-size: var(--font-size--small);
     transition: var(--transition-timing) all;
     content: "Don't press me";

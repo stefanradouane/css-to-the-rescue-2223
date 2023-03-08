@@ -6,11 +6,45 @@
 @font-palette-values --base {
     font-family: "Rocher";
     base-palette: 2;
-    /* Define some colors in the palette */
-    /* Look at my work for WAFS */
-    /* Color palettes */
-    /* Default:blue oid */
-    /* Red */
-    /* Orange */
+    override-colors:
+      0 #ffffff,
+      1 hsl(223, 85%, 40%),
+      2 hsl(223, 85%, 50%),
+      3 hsl(223, 85%, 40%)
+    ;
+}
 
+@font-palette-values --red {
+    font-family: "Rocher";
+    base-palette: 2;
+    override-colors:
+      0 #333333,
+      1 hsl(0, 94%, 39%),
+      2 hsl(0, 94%, 29%),
+      3 hsl(0, 94%, 39%)
+    ;
+}
+
+@supports (color: color(display-p3 1 1 1)) {
+    @font-palette-values --base {
+        font-family: "Rocher";
+        base-palette: 2;
+        override-colors:
+        0 color(display-p3 1, 1, 1 / 1),
+        1 color(display-p3 0.15103, 0.31108, 0.89054),
+        2 color(display-p3 0.11912, 0.24878, 0.71219),
+        3 color(display-p3 0.15103, 0.31108, 0.89054)
+        ;
+    }
+    
+    @font-palette-values --red {
+        font-family: "Rocher";
+        base-palette: 2;
+        override-colors:
+        0 color(display-p3 0.2, 0.2, 0.2 / 1),
+        1 color(display-p3 0.69335, 0.14927, 0.10541),
+        2 color(display-p3 0.51455, 0.10294, 0.07059),
+        3 color(display-p3 0.69335, 0.14927, 0.10541)
+        ;
+    }
 }

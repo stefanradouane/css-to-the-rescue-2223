@@ -1,19 +1,17 @@
 :root{
-    /* Defining some colors */
+    /* Base colors */
     --base-color: crimson;
     --dark-base-color: rgb(80 0 20);
+
     /* Cube colors */
-    /* --color-red: hsl(6, 100%, 35%); */
-    --color-red: #cc0000;
+    --color-red: hsl(0, 100%, 40%);
     --color-green: hsl(120, 100%, 30%);
     --color-orange: hsl(40, 100%, 45%);
-    --color-yellow: yellow;
     --color-yellow: hsl(60, 100%, 40%);
-    --color-white: white;
     --color-white: hsl(240, 10%, 90%);
-    --color-blue: blue;
     --color-blue: hsl(210, 100%, 40%);
 
+    /* Contol colors */
     --control-color:#444;
     --control-color--hover:#555;
     --control-color--active:#333;
@@ -31,4 +29,16 @@
 
     --shadow-light:rgba(0, 0, 0, 0.3);
     --shadow-dark:rgba(0, 0, 0, 0.5);
+}
+
+/* Cube colors if display colors are availible */
+@supports (color: color(display-p3 1 1 1)) {
+    :root {
+        --color-blue: color(display-p3 0.11912, 0.24878, 0.71219);
+        --color-green: color(display-p3 0.113 0.779 0.087 / 1);
+        --color-yellow:color(display-p3 0.943 0.907 0.138 / 1);
+        --color-orange:color(display-p3 1 0.596 0.053 / 1);
+        --color-red:color(display-p3 0.862 0.128 0.041 / 1);
+        --color-white:color(display-p3 1 1 1 / 1);
+    }
 }

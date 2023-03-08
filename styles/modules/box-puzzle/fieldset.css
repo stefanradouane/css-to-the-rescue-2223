@@ -1,3 +1,13 @@
+/* Parent container */
+section:has(input[name="box-puzzle"]) {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: calc(calc(var(--object-size) * 3) + calc(var(--base-offset) * 4));
+    width: calc(calc(var(--object-size) * 2) + calc(var(--base-offset) * 3));
+}
+
+
 /* Default styling of the fieldset */
 fieldset:has(input[name="box-puzzle"]) {
     display: block;

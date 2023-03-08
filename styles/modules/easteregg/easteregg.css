@@ -1,0 +1,52 @@
+/* Easter egg */
+body:has(input[data-easter-egg="1"]:checked) {
+    /* CHANGE COLORS */
+    background: var(--base-color);
+	background-image:		
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 424 74' fill='hsl(210, 100%, 40%)' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 23C0 23 73.3853 45.8898 90.5 26.9997C118.5 -3.90494 195 61.9997 213 26.9999C231 -7.99988 342.5 52.5 340 6.50006C338.952 -12.7859 424 23 424 23V73.8657H0V23Z'/%3E%3C/svg%3E "),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 484 113' fill='hsl(40, 100%, 45%)' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M484 31.9467C484 31.9467 411.514 59.6048 351.585 19.2338C291.656 -21.1372 301.358 68.4778 234.009 54.7787C166.66 41.0797 131.844 -8.00787 94.7453 1.12447C57.6462 10.2568 1.13759e-05 31.9467 1.13759e-05 31.9467L1.84618e-05 113L484 113L484 31.9467Z'/%3E%3C/svg%3E"), 
+		url("data:image/svg+xml,%3Csvg fill='hsl(0, 100%, 40%)' viewBox='0 0 424 125' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 42.3633C0 42.3633 37 49.9995 90.5 26.4996C144 2.99977 162 74.4998 221 62.4998C280 50.4998 321.5 -20.0179 347 6.99978C372.5 34.0174 424 42.3633 424 42.3633V124.5H0V42.3633Z'/%3E%3C/svg%3E "),
+		url("data:image/svg+xml,%3Csvg fill='hsl(120, 100%, 30%)' viewBox='0 0 424 188' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 51.6367C0 51.6367 41 51.6367 74.5 39.0001C119.519 22.0182 197.5 53.1351 230 41.1358C262.5 29.1364 311.276 -26.1064 344 16.1367C371.5 51.6366 424 51.6367 424 51.6367V187.637H0V51.6367Z' /%3E%3C/svg%3E%0A"),
+		url("data:image/svg+xml,%3Csvg viewBox='0 0 424 191' fill='hsl(60, 100%, 40%)' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 43.0001C0 43.0001 88.5 45.4992 110 20.5001C139.359 -13.6364 144 41 209.5 41.0001C275 41.0002 348.283 -30.3748 373 17C385 39.9998 424 43.0001 424 43.0001V190.637H0V43.0001Z'/%3E%3C/svg%3E");
+	background-repeat: repeat-x;
+	background-position: 
+		0 100%,
+		0 100%,
+		0 100%,
+		0 100%,
+		0 100%;
+	background-size: 
+		100%,
+		100%,
+		100%,
+		100%,
+        100%;
+
+	animation: 5s golven infinite linear;
+}
+
+/* CHANGE the colors if p3 is availible */
+@supports (color: color(display-p3 1 1 1)) {
+    body:has(input[data-easter-egg="1"]:checked) {
+        background-image:		
+            url("data:image/svg+xml,%3Csvg viewBox='0 0 424 74' fill='color(display-p3 0.11912, 0.24878, 0.71219)' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 23C0 23 73.3853 45.8898 90.5 26.9997C118.5 -3.90494 195 61.9997 213 26.9999C231 -7.99988 342.5 52.5 340 6.50006C338.952 -12.7859 424 23 424 23V73.8657H0V23Z'/%3E%3C/svg%3E "),
+            url("data:image/svg+xml,%3Csvg viewBox='0 0 484 113' fill='color(display-p3 1 0.596 0.053 / 1)' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M484 31.9467C484 31.9467 411.514 59.6048 351.585 19.2338C291.656 -21.1372 301.358 68.4778 234.009 54.7787C166.66 41.0797 131.844 -8.00787 94.7453 1.12447C57.6462 10.2568 1.13759e-05 31.9467 1.13759e-05 31.9467L1.84618e-05 113L484 113L484 31.9467Z'/%3E%3C/svg%3E"), 
+            url("data:image/svg+xml,%3Csvg fill='color(display-p3 0.862 0.128 0.041 / 1)' viewBox='0 0 424 125' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 42.3633C0 42.3633 37 49.9995 90.5 26.4996C144 2.99977 162 74.4998 221 62.4998C280 50.4998 321.5 -20.0179 347 6.99978C372.5 34.0174 424 42.3633 424 42.3633V124.5H0V42.3633Z'/%3E%3C/svg%3E "),
+            url("data:image/svg+xml,%3Csvg fill='color(display-p3 0.113 0.779 0.087 / 1)' viewBox='0 0 424 188' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 51.6367C0 51.6367 41 51.6367 74.5 39.0001C119.519 22.0182 197.5 53.1351 230 41.1358C262.5 29.1364 311.276 -26.1064 344 16.1367C371.5 51.6366 424 51.6367 424 51.6367V187.637H0V51.6367Z' /%3E%3C/svg%3E%0A"),
+            url("data:image/svg+xml,%3Csvg viewBox='0 0 424 191' fill='color(display-p3 0.943 0.907 0.138 / 1)' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 43.0001C0 43.0001 88.5 45.4992 110 20.5001C139.359 -13.6364 144 41 209.5 41.0001C275 41.0002 348.283 -30.3748 373 17C385 39.9998 424 43.0001 424 43.0001V190.637H0V43.0001Z'/%3E%3C/svg%3E");
+    }
+
+
+}
+    
+/* Make the waves wave */
+@keyframes golven {
+	100% {
+		background-position: 
+            100vw 100%,
+			200vw 100%,
+			300vw 100%,
+			100vw 100%,
+			200vw 100%;
+		}
+}

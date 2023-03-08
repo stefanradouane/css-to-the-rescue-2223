@@ -68,7 +68,7 @@ Om eerlijk was het wel een beetje puzzelen hoe de kubus nou precies opgebouwd mo
 
 #### Draaibaar maken
 
-Nu ik de cubus had ging ik proberen om de rijen van de kubus te laten draaien. Na veel proberen met de kubus had ik het opgegeven, omdat ik hoofdpijn kreeg van het proberen. Ik heb op dit moment bedacht om mijn idee te veranderen naar de 'impossible cube'. Het lukte mij wel om de losse blokken te transformeren, alleen niet op een realistiche wijze, daarom dacht ik met CSS kan je de natuurwetten een beetje verbuigen en dat zorgt ervoor dat de impossible cube wel mogelijk was op een website.
+Nu ik de cubus had ging ik proberen om de rijen van de kubus te laten draaien. Na veel proberen met de kubus had ik het opgegeven, omdat ik hoofdpijn kreeg van het proberen. Ik heb op dit moment bedacht om mijn idee te veranderen naar de 'impossible cube'. Het lukte mij wel om de losse blokken te transformeren, alleen niet op een realistiche wijze, daarom dacht ik met CSS kan je de natuurwetten een beetje verbuigen en dat zorgt ervoor dat de impossible cube wel mogelijk was op een website. 
 
 <img src="/assets/process-images/v2-impossible.png"
      alt="v2 impossible"   
@@ -77,7 +77,7 @@ Nu ik de cubus had ging ik proberen om de rijen van de kubus te laten draaien. N
 
 ### Versie 3
 
-
+Tijdens werd mij verteld dat ik het toch nog een keer moest proberen om de kubus draaibaar te maken. Ik heb hiernaar geluisterd en heb het een tweede kans gegeven. Aangezien een kubus [43.252.003.274.489.856,000](https://www.google.com/search?q=aantaal+mogelijkheden+rubiks+cube&oq=aantaal+mogelijkheden+rubiks+cube&aqs=chrome..69i57j0i13i512.6313j0j7&sourceid=chrome&ie=UTF-8) mogelijkheden, heb ik dit iets versimpeld voor mijzelf.
 
 -   FB: Toch proberen werkend maken
 -   Werkend gemaakt (levels rubisk cube)

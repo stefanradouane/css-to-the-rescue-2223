@@ -1,27 +1,31 @@
-# :cube: The Impossible Cube
+# :package: The Cube Trainer
 
-## Gemaakt door Stefan Radouane
+Dit is het proces van het vak CSS to the rescue.
+Gemaakt door Stefan Radouane
 
-## CSS to the Rescue 2023
+## :alembic: Mijn leerdoel
 
-## :sparkles: Start project
+Ik wil tijdens dit vak de nieuwste CSS features leren en experimenteren met 3D objecten, vervolgens wil ik deze nieuw geleerde technieken toepassen in mijn eindopdracht.
 
-Hier komt een uitleg van het project
+## :sparkles: Keuze project en browser
 
-## :art: Mijn keuze
+Voor het project is het de bedoeling dat we een keuze maakten uit 3 opdrachten de opdrachten de opties waren:
 
-Ik heb gekozen voor de rubiks cube, omdat ...
+- Een bedieningspaneel
+- Een vuurwerkshow
+- Een rubiks cube
+
+Ik heb uiteindelijk gekozen voor de rubiks cube, omdat ik toevallig zelf ook bezig was met het leren van een rubiks cube oplossen. Daarnaast paste dit precies bij het leerdoel van mij dat ik wil leren om 3D objecten te maken met CSS.
 
 ## Proces
 
 ### Versie 1
 
-Na de eerste dag aan de opdracht werken had ik eigenlijk al een rubiks cube gemaakt van css en html.
+Na de eerste dag aan de opdracht werken had ik eigenlijk al een rubiks cube gemaakt van HTML en CSS. Deze cubus bestond uit 54 losse divs. Ik liep alleen tegen een probleem aan nu en dat is dat ik de losse divs niet draaibaar kon maken, omdat ik deze divs met een eigen transform op de cube had geplaatst.
 
--   54 divs
--   Rubiks cube werkt niet
--   Structuur refactoren
--   Draaibaar maken
+<img src="../assets/process-images/v1.png"
+     alt="Markdown Monster icon"
+     style="float: left; margin-right: 10px;" />
 
 ### Versie 2
 

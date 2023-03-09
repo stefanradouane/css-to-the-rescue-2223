@@ -196,12 +196,7 @@ Met de `@property` kan je het mogelijk maken om variabelen te animeren. Ik heb d
 
 > Naast de `syntax: '<color>'` zijn er nog een [aantal van andere](https://developer.mozilla.org/en-US/docs/Web/CSS/@property/syntax) soorten syntax.
 
--   Laatste versie
--   Alles fancy maken
--   Structuur van css bestanden (modulair)
--   Kleuren (werken met display-p3)
--   Slider
--   Levels (spectator)
--   Overheating cube.
+---
 
-Comming very soon...
+Gemaakt door Stefan Radouane
+maart 2023

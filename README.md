@@ -199,4 +199,5 @@ Met de `@property` kan je het mogelijk maken om variabelen te animeren. Ik heb d
 ---
 
 Gemaakt door Stefan Radouane
-maart 2023
+
+Maart 2023
